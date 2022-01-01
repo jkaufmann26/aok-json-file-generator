@@ -4,4 +4,4 @@ Aok - Arena of Kings, Json generate for the UI in game. Unfortuantely there is n
 
 # Notes:
 AOK file location ```Program Files(x86)\Steam\steamapps\common\Arena of Kings```
-  - Replace options.json
+  - Replace ```options.json```
