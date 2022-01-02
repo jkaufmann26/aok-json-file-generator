@@ -8,6 +8,9 @@ otherwise we would need them to put in their resolution, and do some scaling mat
 which would also have to be accounted for because it would change if people had their window windowed.
 
 
-Y choord is inverted from jQuery, will need a smarter solution to have multiple resolutions supported
+Y choord is inverted from jQuery, will need a smarter solution to have multiple resolutions supported, choord also starts at the bottom left instead of top left for images
 
 There is about a 63 pixel x offset for the enemy frames (shift -63). This is probably for all resolutions unless ui gets scaled like that
+
+TODO:
+Starting spots for Ally/enemies

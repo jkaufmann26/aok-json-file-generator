@@ -45,7 +45,7 @@ $('#dragEnemy3').draggable({
   },
 });
 
-$('#dragAlly2').draggable({
+$('#dragAlly1').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -56,7 +56,7 @@ $('#dragAlly2').draggable({
 });
 
 
-$('#dragAlly1').draggable({
+$('#dragAlly2').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -78,13 +78,9 @@ $('#dragAlly3').draggable({
 });
 
 
-
-//Seperator for the stuff I was gonna do in py, think it might just be easier to keep it all in js
-//Idk how files are supposed to work in js, so I just left it in here, we can move it later if it should be moved
-//a1X,a1Y,a2X,a2Y,a3X,a3Y,e1X,e1Y,e2X,e2Y,e3X,e3Y
-function generateJson() //probably compress this into an array or 2 or 6 (1 defined in order, 2 all x/ys in order, 6 basically tuples)
+function generateJson()
 {
-  let test={
+  let test={//this should really load a file, and change values. Allowing for presets
     "VIDEO_FPS_BACKGROUND" : "REFRESH_RATE",
     "VIDEO_FPS_FOREGROUND" : "REFRESH_RATE",
     "VIDEO_VSYNC" : "false",

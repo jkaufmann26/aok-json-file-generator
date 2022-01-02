@@ -21,6 +21,8 @@ body {
   overflow: hidden;
   width: 219px;
   height: 84px;
+  /* top: 800px;
+  left: 0px; */
   clear: both;
   /* border: 1px solid black; */
 }
@@ -43,6 +45,8 @@ body {
   overflow: hidden;
   width: 219px;
   height: 84px;
+  /* top: 1000px;
+  left: 1190px; */
   clear: both;
   /* border: 1px solid black; */
 }
