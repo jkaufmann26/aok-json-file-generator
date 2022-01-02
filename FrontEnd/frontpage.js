@@ -1,40 +1,58 @@
-$('#dragThis').draggable({
+var enemyX1;
+var enemyX2;
+var enemyX3;
+var enemyY1;
+var enemyY2;
+var enemyY3;
+
+var allyX1;
+var allyX2;
+var allyX3;
+var allyY1;
+var allyY2;
+var allyY3;
+
+$('#dragEnemyLich').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
-    $('#posX').text('x: ' + xPos);
-    $('#posY').text('y: ' + yPos);
+    enemyX1 = xPos;
+    enemyY1 = yPos
   },
-  stop: function(event, ui) {
-
-    // Show dropped position.
-    var Stoppos = $(this).position();
-    var left = Math.abs(Stoppos.left);
-    var top = Math.abs(Stoppos.top);
-    $('#posY').text('top: ' + top);
-  }
-
 });
 
-$('#dragThis2').draggable({
+
+$('#dragAllyRogue').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
-    $('#posX1').text('x: ' + xPos);
-    $('#posY1').text('y: ' + yPos);
+    allyX1 = xPos;
+    allyY1 = yPos
   },
-  stop: function(event, ui) {
+});
 
-    // Show dropped position.
-    var Stoppos = $(this).position();
-    var left = Math.abs(Stoppos.left);
-    var top = Math.abs(Stoppos.top);
-    $('#posX1').text('left: ' + left);
-    $('#posY1').text('top: ' + top);
-  }
 
+$('#dragAllyPriest').draggable({
+  drag: function() {
+    var offset = $(this).offset();
+    var xPos = Math.abs(offset.left);
+    var yPos = Math.abs(offset.top);
+    allyX2 = xPos;
+    allyY2 = yPos
+  },
+});
+
+
+$('#dragAllyLich').draggable({
+  drag: function() {
+    var offset = $(this).offset();
+    var xPos = Math.abs(offset.left);
+    var yPos = Math.abs(offset.top);
+    allyX3 = xPos;
+    allyY3 = yPos
+  },
 });
 
 
@@ -67,25 +85,25 @@ function generateJson() //probably compress this into an array or 2 or 6 (1 defi
     "ALLY_TARGET_FEET_GLOW" : "true",
     "ALLY_PARTY_FRAME_SPACER" : "0",
     "ALLY_1_PARTY_FRAME_HIDDEN" : "false",
-    "ALLY_1_PARTY_FRAME_X_OFFSET" : "-100",
-    "ALLY_1_PARTY_FRAME_Y_OFFSET" : "700",
+    "ALLY_1_PARTY_FRAME_X_OFFSET" : allyX1,
+    "ALLY_1_PARTY_FRAME_Y_OFFSET" : allyY1,
     "ALLY_2_PARTY_FRAME_HIDDEN" : "false",
-    "ALLY_2_PARTY_FRAME_X_OFFSET" : "450",
-    "ALLY_2_PARTY_FRAME_Y_OFFSET" : "600",
+    "ALLY_2_PARTY_FRAME_X_OFFSET" : allyX2,
+    "ALLY_2_PARTY_FRAME_Y_OFFSET" : allyY2,
     "ALLY_3_PARTY_FRAME_HIDDEN" : "false",
-    "ALLY_3_PARTY_FRAME_X_OFFSET" : "450",
-    "ALLY_3_PARTY_FRAME_Y_OFFSET" : "500",
+    "ALLY_3_PARTY_FRAME_X_OFFSET" : allyX3,
+    "ALLY_3_PARTY_FRAME_Y_OFFSET" : allyY3,
     "ENEMY_TARGET_FEET_GLOW" : "true",
     "ENEMY_PARTY_FRAME_SPACER" : "0",
     "ENEMY_1_PARTY_FRAME_HIDDEN" : "false",
-    "ENEMY_1_PARTY_FRAME_X_OFFSET" : "1190",
-    "ENEMY_1_PARTY_FRAME_Y_OFFSET" : "700",
+    "ENEMY_1_PARTY_FRAME_X_OFFSET" : enemyX1,
+    "ENEMY_1_PARTY_FRAME_Y_OFFSET" : enemyY1,
     "ENEMY_2_PARTY_FRAME_HIDDEN" : "false",
-    "ENEMY_2_PARTY_FRAME_X_OFFSET" : "1190",
-    "ENEMY_2_PARTY_FRAME_Y_OFFSET" : "600",
+    "ENEMY_2_PARTY_FRAME_X_OFFSET" : enemyX2,
+    "ENEMY_2_PARTY_FRAME_Y_OFFSET" : enemyY2,
     "ENEMY_3_PARTY_FRAME_HIDDEN" : "false",
-    "ENEMY_3_PARTY_FRAME_X_OFFSET" : "1190",
-    "ENEMY_3_PARTY_FRAME_Y_OFFSET" : "500",
+    "ENEMY_3_PARTY_FRAME_X_OFFSET" : enemyX3,
+    "ENEMY_3_PARTY_FRAME_Y_OFFSET" : enemyY3,
     "SHOW_PLAY_UI_LONGBAR" : "true",
     "SHOW_PLAY_UI_BACKDROP" : "true",
     "VOLUME_LEVEL" : "30",

@@ -13,3 +13,7 @@
   border: 3px solid #ccc;
   border-radius: 0 1em 1em 1em;
 }
+
+body{
+  background-image: url('../Assets/no_frames.png');
+}
