@@ -77,6 +77,85 @@ $('#dragAlly3').draggable({
   },
 });
 
+var ally1Check;
+var ally2Check;
+var ally3Check;
+var enemy1Check;
+var enemy2Check;
+var enemy3Check;
+
+
+function valueChangedAlly1(){
+  if(document.getElementById("allyChecked1").checked){
+    document.getElementById('dragAlly1').style.display = 'block';
+    ally1Check = true;
+  }
+  else{
+    document.getElementById('dragAlly1').style.display = 'none';
+    ally1Check = false
+  }
+}
+    
+function valueChangedAlly2(){
+  if(document.getElementById("allyChecked2").checked){
+    document.getElementById('dragAlly2').style.display = 'block';
+    ally2Check = true;
+  }
+  else {
+    document.getElementById('dragAlly2').style.display = 'none';
+    ally2Check = false;
+  }
+}
+
+function valueChangedAlly3(){
+  if(document.getElementById("allyChecked3").checked){
+    document.getElementById('dragAlly3').style.display = 'block';
+    ally3Check = true;
+  }
+  else{ 
+    document.getElementById('dragAlly3').style.display = 'none';
+    ally3Check = false;
+  }
+}
+    
+function valueChangedEnemy1(){
+    if(document.getElementById("enemyChecked1").checked){
+      document.getElementById('dragEnemy1').style.display = 'block';
+      enemy1Check = true;
+    }
+    else{
+      document.getElementById('dragEnemy1').style.display = 'none';
+      enemy1Check = false;
+    }
+
+}
+
+function valueChangedEnemy2()
+{
+  if(document.getElementById("enemyChecked2").checked){
+    document.getElementById('dragEnemy2').style.display = 'block';
+    enemy2Check = true;
+  }
+  else{
+    document.getElementById('dragEnemy2').style.display = 'none';
+    enemy2Check = false;
+
+  }
+}
+    
+function valueChangedEnemy3()
+{
+  if(document.getElementById("enemyChecked3").checked){
+    document.getElementById('dragEnemy3').style.display = 'block';
+    enemy3Check = true;
+  }
+  else{
+    document.getElementById('dragEnemy3').style.display = 'none';
+    enemy3Check = false;
+
+  }
+}
+
 
 function generateJson()
 {
@@ -102,24 +181,24 @@ function generateJson()
     "NAMEPLATE_HIDE_ENEMY" : "false",
     "ALLY_TARGET_FEET_GLOW" : "true",
     "ALLY_PARTY_FRAME_SPACER" : "0",
-    "ALLY_1_PARTY_FRAME_HIDDEN" : "false",
+    "ALLY_1_PARTY_FRAME_HIDDEN" : ally1Check,
     "ALLY_1_PARTY_FRAME_X_OFFSET" : String(allyX1),
     "ALLY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY1),
-    "ALLY_2_PARTY_FRAME_HIDDEN" : "false",
+    "ALLY_2_PARTY_FRAME_HIDDEN" : ally2Check,
     "ALLY_2_PARTY_FRAME_X_OFFSET" : String(allyX2),
     "ALLY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY2),
-    "ALLY_3_PARTY_FRAME_HIDDEN" : "false",
+    "ALLY_3_PARTY_FRAME_HIDDEN" : ally3Check,
     "ALLY_3_PARTY_FRAME_X_OFFSET" : String(allyX3),
     "ALLY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY3),
     "ENEMY_TARGET_FEET_GLOW" : "true",
     "ENEMY_PARTY_FRAME_SPACER" : "0",
-    "ENEMY_1_PARTY_FRAME_HIDDEN" : "false",
+    "ENEMY_1_PARTY_FRAME_HIDDEN" : enemy1Check,
     "ENEMY_1_PARTY_FRAME_X_OFFSET" : String(enemyX1-enemyXOffset),
     "ENEMY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY1),
-    "ENEMY_2_PARTY_FRAME_HIDDEN" : "false",
+    "ENEMY_2_PARTY_FRAME_HIDDEN" : enemy2Check,
     "ENEMY_2_PARTY_FRAME_X_OFFSET" : String(enemyX2-enemyXOffset),
     "ENEMY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY2),
-    "ENEMY_3_PARTY_FRAME_HIDDEN" : "false",
+    "ENEMY_3_PARTY_FRAME_HIDDEN" : enemy3Check,
     "ENEMY_3_PARTY_FRAME_X_OFFSET" : String(enemyX3-enemyXOffset),
     "ENEMY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY3),
     "SHOW_PLAY_UI_LONGBAR" : "true",
