@@ -124,7 +124,7 @@ function generateJson() //probably compress this into an array or 2 or 6 (1 defi
     "ENEMY_3_PARTY_FRAME_Y_OFFSET" : String(enemyY3),
     "SHOW_PLAY_UI_LONGBAR" : "true",
     "SHOW_PLAY_UI_BACKDROP" : "true",
-    "VOLUME_LEVEL" : "30",
+    "VOLUME_LEVEL" : "100",
     "PLAY_HIDE_CHANNEL_CHAT" : "false",
     "PLAY_HIDE_CHANNEL_FRAME" : "true",
     "PLAY_ROLE_QUEUE_DPS" : "false",
