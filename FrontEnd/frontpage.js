@@ -21,7 +21,7 @@ $('#dragEnemy1').draggable({
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
     enemyX1 = xPos;
-    enemyY1 = yPos
+    enemyY1 = yPos;
     console.log('enemyx1: ',xPos,'enemyy1: ', yPos);
   },
 });
@@ -32,7 +32,7 @@ $('#dragEnemy2').draggable({
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
     enemyX2 = xPos;
-    enemyY2 = yPos
+    enemyY2 = yPos;
   },
 });
 $('#dragEnemy3').draggable({
@@ -41,7 +41,7 @@ $('#dragEnemy3').draggable({
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
     enemyX3 = xPos;
-    enemyY3 = yPos
+    enemyY3 = yPos;
   },
 });
 
@@ -51,7 +51,7 @@ $('#dragAlly1').draggable({
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
     allyX1 = xPos;
-    allyY1 = yPos
+    allyY1 = yPos;
   },
 });
 
@@ -62,7 +62,7 @@ $('#dragAlly2').draggable({
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
     allyX2 = xPos;
-    allyY2 = yPos
+    allyY2 = yPos;
   },
 });
 
@@ -73,7 +73,7 @@ $('#dragAlly3').draggable({
     var xPos = Math.abs(offset.left);
     var yPos = Math.abs(offset.top);
     allyX3 = xPos;
-    allyY3 = yPos
+    allyY3 = yPos;
   },
 });
 
