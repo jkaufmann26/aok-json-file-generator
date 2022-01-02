@@ -17,6 +17,49 @@ body {
   height: 100%;
 
 }
+#dragAllyLich {
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragAllyPriest {
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragAllyRogue {
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+
+#dragEnemyLich {
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragEnemyPally {
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragEnemyRogue {
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  clear: both;
+  /* border: 1px solid black; */
+}
 @media screen and (min-width: 1024px){
   .container{
 

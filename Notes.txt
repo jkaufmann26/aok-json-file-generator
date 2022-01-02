@@ -6,3 +6,7 @@ jQuery should use this same sytem
 If we have a system that has the user fullscreen the image to modify it would automatically be the right size for the monitor
 otherwise we would need them to put in their resolution, and do some scaling math with the current size of the image/field, 
 which would also have to be accounted for because it would change if people had their window windowed.
+
+
+TODO
+Bug: clicking to the right of a draggable will let you drag it
