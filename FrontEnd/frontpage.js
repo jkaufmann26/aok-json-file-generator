@@ -1,21 +1,21 @@
-var enemyX1;
-var enemyX2;
-var enemyX3;
-var enemyY1;
-var enemyY2;
-var enemyY3;
+var enemyX1=1190;
+var enemyX2=1415;
+var enemyX3=1640;
+var enemyY1=0;
+var enemyY2=0;
+var enemyY3=0;
 
-var allyX1;
-var allyX2;
-var allyX3;
-var allyY1;
-var allyY2;
-var allyY3;
+var allyX1=0;
+var allyX2=225;
+var allyX3=450;
+var allyY1=0;
+var allyY2=0;
+var allyY3=0;
 
 var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
 var enemyXOffset = 63;
 
-$('#dragEnemyLich').draggable({
+$('#dragEnemy1').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -26,7 +26,7 @@ $('#dragEnemyLich').draggable({
   },
 });
 
-$('#dragEnemyPally').draggable({
+$('#dragEnemy2').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -35,7 +35,7 @@ $('#dragEnemyPally').draggable({
     enemyY2 = yPos
   },
 });
-$('#dragEnemyRogue').draggable({
+$('#dragEnemy3').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -45,7 +45,7 @@ $('#dragEnemyRogue').draggable({
   },
 });
 
-$('#dragAllyRogue').draggable({
+$('#dragAlly2').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -56,7 +56,7 @@ $('#dragAllyRogue').draggable({
 });
 
 
-$('#dragAllyPriest').draggable({
+$('#dragAlly1').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
@@ -67,7 +67,7 @@ $('#dragAllyPriest').draggable({
 });
 
 
-$('#dragAllyLich').draggable({
+$('#dragAlly3').draggable({
   drag: function() {
     var offset = $(this).offset();
     var xPos = Math.abs(offset.left);
