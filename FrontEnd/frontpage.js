@@ -12,6 +12,9 @@ var allyY1;
 var allyY2;
 var allyY3;
 
+var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
+var enemyXOffset = 63;
+
 $('#dragEnemyLich').draggable({
   drag: function() {
     var offset = $(this).offset();
@@ -105,24 +108,24 @@ function generateJson() //probably compress this into an array or 2 or 6 (1 defi
     "ALLY_PARTY_FRAME_SPACER" : "0",
     "ALLY_1_PARTY_FRAME_HIDDEN" : "false",
     "ALLY_1_PARTY_FRAME_X_OFFSET" : String(allyX1),
-    "ALLY_1_PARTY_FRAME_Y_OFFSET" : String(1000-allyY1),
+    "ALLY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY1),
     "ALLY_2_PARTY_FRAME_HIDDEN" : "false",
     "ALLY_2_PARTY_FRAME_X_OFFSET" : String(allyX2),
-    "ALLY_2_PARTY_FRAME_Y_OFFSET" : String(1000-allyY2),
+    "ALLY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY2),
     "ALLY_3_PARTY_FRAME_HIDDEN" : "false",
     "ALLY_3_PARTY_FRAME_X_OFFSET" : String(allyX3),
-    "ALLY_3_PARTY_FRAME_Y_OFFSET" : String(1000-allyY3),
+    "ALLY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY3),
     "ENEMY_TARGET_FEET_GLOW" : "true",
     "ENEMY_PARTY_FRAME_SPACER" : "0",
     "ENEMY_1_PARTY_FRAME_HIDDEN" : "false",
-    "ENEMY_1_PARTY_FRAME_X_OFFSET" : String(enemyX1-63),
-    "ENEMY_1_PARTY_FRAME_Y_OFFSET" : String(1000-enemyY1),
+    "ENEMY_1_PARTY_FRAME_X_OFFSET" : String(enemyX1-enemyXOffset),
+    "ENEMY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY1),
     "ENEMY_2_PARTY_FRAME_HIDDEN" : "false",
-    "ENEMY_2_PARTY_FRAME_X_OFFSET" : String(enemyX2-63),
-    "ENEMY_2_PARTY_FRAME_Y_OFFSET" : String(1000-enemyY2),
+    "ENEMY_2_PARTY_FRAME_X_OFFSET" : String(enemyX2-enemyXOffset),
+    "ENEMY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY2),
     "ENEMY_3_PARTY_FRAME_HIDDEN" : "false",
-    "ENEMY_3_PARTY_FRAME_X_OFFSET" : String(enemyX3-63),
-    "ENEMY_3_PARTY_FRAME_Y_OFFSET" : String(1000-enemyY3),
+    "ENEMY_3_PARTY_FRAME_X_OFFSET" : String(enemyX3-enemyXOffset),
+    "ENEMY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY3),
     "SHOW_PLAY_UI_LONGBAR" : "true",
     "SHOW_PLAY_UI_BACKDROP" : "true",
     "VOLUME_LEVEL" : "100",
