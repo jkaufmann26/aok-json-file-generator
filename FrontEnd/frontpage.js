@@ -22,6 +22,24 @@ $('#dragEnemyLich').draggable({
   },
 });
 
+$('#dragEnemyPally').draggable({
+  drag: function() {
+    var offset = $(this).offset();
+    var xPos = Math.abs(offset.left);
+    var yPos = Math.abs(offset.top);
+    enemyX2 = xPos;
+    enemyY2 = yPos
+  },
+});
+$('#dragEnemyRogue').draggable({
+  drag: function() {
+    var offset = $(this).offset();
+    var xPos = Math.abs(offset.left);
+    var yPos = Math.abs(offset.top);
+    enemyX3 = xPos;
+    enemyY3 = yPos
+  },
+});
 
 $('#dragAllyRogue').draggable({
   drag: function() {
