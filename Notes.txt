@@ -13,4 +13,4 @@ Y choord is inverted from jQuery, will need a smarter solution to have multiple 
 There is about a 63 pixel x offset for the enemy frames (shift -63). This is probably for all resolutions unless ui gets scaled like that
 
 TODO:
-Starting spots for Ally/enemies
+Starting spots for Ally/enemies, think this should be done with some kind of init in js, I tried using css but that seems bad
