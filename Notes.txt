@@ -1,0 +1,8 @@
+X,Y values of AOK will allow you to put frames fully off the screen, so you are able to cut off the image if you want
+works with both negative values, and values greater than max resolution
+
+Choords are pixels starting at 0,0 in the top left corner and going positive down and right.
+jQuery should use this same sytem
+If we have a system that has the user fullscreen the image to modify it would automatically be the right size for the monitor
+otherwise we would need them to put in their resolution, and do some scaling math with the current size of the image/field, 
+which would also have to be accounted for because it would change if people had their window windowed.
