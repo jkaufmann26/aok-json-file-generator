@@ -12,7 +12,8 @@ var options = function () {
 }(); 
 console.log(options);
 
-//TODO fix this with offset
+var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
+var enemyXOffset = 63;
 var enemyX1=options.ENEMY_1_PARTY_FRAME_X_OFFSET;
 var enemyX2=options.ENEMY_2_PARTY_FRAME_X_OFFSET;
 var enemyX3=options.ENEMY_3_PARTY_FRAME_X_OFFSET;
@@ -36,17 +37,8 @@ var enemy3Check=false;
 var allAllyCheck=false;
 var allEnemyCheck=false;
 
-var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
-var enemyXOffset = 63;
+updateVars();
 
-
-$('#dragEnemy1').css({'top':enemyX1,'left':enemyY1,'position':'absolute'});
-$('#dragEnemy2').css({'top':enemyX2,'left':enemyY2,'position':'absolute'});
-$('#dragEnemy3').css({'top':enemyX3,'left':enemyY3,'position':'absolute'});
-
-$('#dragAlly1').css({'top':allyX1,'left':allyY1,'position':'absolute'});
-$('#dragAlly2').css({'top':allyX2,'left':allyY2,'position':'absolute'});
-$('#dragAlly3').css({'top':allyX3,'left':allyY3,'position':'absolute'});
 $('#dragEnemy1').draggable({
   drag: function() {
     var offset = $(this).offset();
@@ -119,6 +111,15 @@ $('#dragAlly3').draggable({
   grid: [ 10, 10 ],
   snap: true,
 });
+
+$(document).keypress(function(event){
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  if(keycode == '13'){
+      download(JSON.stringify(generateJson(),null,'\t'));
+  }
+});
+
+
 
 function valueChangedAlly1(){
   if(document.getElementById("allyChecked1").checked){
@@ -288,9 +289,14 @@ function download(text) {
   document.body.removeChild(element);
 }
 
-$(document).keypress(function(event){
-  var keycode = (event.keyCode ? event.keyCode : event.which);
-  if(keycode == '13'){
-      download(JSON.stringify(generateJson(),null,'\t'));
-  }
-});
+
+function updateVars()
+{
+  $('#dragEnemy1').css({'top':yOffset-enemyY1,'left':enemyX1-enemyXOffset,'position':'absolute'});
+  $('#dragEnemy2').css({'top':yOffset-enemyY2,'left':enemyX2-enemyXOffset,'position':'absolute'});
+  $('#dragEnemy3').css({'top':yOffset-enemyY3,'left':enemyX3-enemyXOffset,'position':'absolute'});
+
+  $('#dragAlly1').css({'top':yOffset-allyY1,'left':allyX1,'position':'absolute'});
+  $('#dragAlly2').css({'top':yOffset-allyY2,'left':allyX2,'position':'absolute'});
+  $('#dragAlly3').css({'top':yOffset-allyY3,'left':allyX3,'position':'absolute'});
+}
