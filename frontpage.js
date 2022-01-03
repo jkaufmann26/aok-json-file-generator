@@ -1,16 +1,31 @@
-var enemyX1=1190;
-var enemyX2=1415;
-var enemyX3=1640;
-var enemyY1=0;
-var enemyY2=0;
-var enemyY3=0;
 
-var allyX1=0;
-var allyX2=225;
-var allyX3=450;
-var allyY1=0;
-var allyY2=0;
-var allyY3=0;
+var options = function () {
+  var jsonTemp = null;
+  $.ajax({
+      'async': false,
+      'url': "Presets/options.json",
+      'success': function (data) {
+          jsonTemp = data;
+      }
+  });
+  return jsonTemp;
+}(); 
+console.log(options);
+
+//TODO fix this with offset
+var enemyX1=options.ENEMY_1_PARTY_FRAME_X_OFFSET;
+var enemyX2=options.ENEMY_2_PARTY_FRAME_X_OFFSET;
+var enemyX3=options.ENEMY_3_PARTY_FRAME_X_OFFSET;
+var enemyY1=options.ENEMY_1_PARTY_FRAME_Y_OFFSET;
+var enemyY2=options.ENEMY_2_PARTY_FRAME_Y_OFFSET;
+var enemyY3=options.ENEMY_3_PARTY_FRAME_Y_OFFSET;
+
+var allyX1=options.ALLY_1_PARTY_FRAME_X_OFFSET;
+var allyX2=options.ALLY_2_PARTY_FRAME_X_OFFSET;
+var allyX3=options.ALLY_3_PARTY_FRAME_X_OFFSET;
+var allyY1=options.ALLY_1_PARTY_FRAME_Y_OFFSET;
+var allyY2=options.ALLY_2_PARTY_FRAME_Y_OFFSET;
+var allyY3=options.ALLY_3_PARTY_FRAME_Y_OFFSET;
 
 var ally1Check=false;
 var ally2Check=false;
@@ -24,13 +39,14 @@ var allEnemyCheck=false;
 var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
 var enemyXOffset = 63;
 
-var options;
 
-$.getJSON("Presets/options.json", function(json) {
-  options = json;
-  console.log(options); // this will show the info it in firebug console
-});
+$('#dragEnemy1').css({'top':enemyX1,'left':enemyY1,'position':'absolute'});
+$('#dragEnemy2').css({'top':enemyX2,'left':enemyY2,'position':'absolute'});
+$('#dragEnemy3').css({'top':enemyX3,'left':enemyY3,'position':'absolute'});
 
+$('#dragAlly1').css({'top':allyX1,'left':allyY1,'position':'absolute'});
+$('#dragAlly2').css({'top':allyX2,'left':allyY2,'position':'absolute'});
+$('#dragAlly3').css({'top':allyX3,'left':allyY3,'position':'absolute'});
 $('#dragEnemy1').draggable({
   drag: function() {
     var offset = $(this).offset();
