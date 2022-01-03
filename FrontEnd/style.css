@@ -1,4 +1,3 @@
-
 .container {
   background-image: url('../Assets/no_frames.png');
   background-repeat: no-repeat;
@@ -18,52 +17,60 @@ body {
 
 }
 #dragAlly1 {
+  position: fixed;
   overflow: hidden;
   width: 219px;
   height: 84px;
-  /* top: 800px;
-  left: 0px; */
-  clear: both;
   float: left;
-
+  top: 800px;
+  clear: both;
   /* border: 1px solid black; */
 }
 #dragAlly2 {
+  position: fixed;
   overflow: hidden;
+  float: left;
   width: 219px;
   height: 84px;
+  top: 700px;
   clear: both;
-  float: left;
   /* border: 1px solid black; */
 }
 #dragAlly3 {
+  position: fixed;
   overflow: hidden;
+  float: left;
   width: 219px;
   height: 84px;
+  top: 600px;
   clear: both;
   /* border: 1px solid black; */
 }
 
 #dragEnemy1 {
+  position: fixed;
   overflow: hidden;
   width: 219px;
   height: 84px;
-  /* top: 1000px;
-  left: 1190px; */
+  top: 500px;
   clear: both;
   /* border: 1px solid black; */
 }
 #dragEnemy2 {
+  position: fixed;
   overflow: hidden;
   width: 219px;
   height: 84px;
+  top: 400px;
   clear: both;
   /* border: 1px solid black; */
 }
 #dragEnemy3 {
+  position: fixed;
   overflow: hidden;
   width: 219px;
   height: 84px;
+  top: 300px;
   clear: both;
   /* border: 1px solid black; */
 }
@@ -81,6 +88,12 @@ body {
 
 fieldset {
   background-color: #eeeeee;
+  position: fixed;
+  float: right;
+  width: 250px;
+  height: 200px;
+  top: 0px;
+  right: 0px;
 }
 
 legend {
