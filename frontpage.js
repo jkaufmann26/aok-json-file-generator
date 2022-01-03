@@ -12,8 +12,24 @@ var allyY1=0;
 var allyY2=0;
 var allyY3=0;
 
+var ally1Check=false;
+var ally2Check=false;
+var ally3Check=false;
+var enemy1Check=false;
+var enemy2Check=false;
+var enemy3Check=false;
+var allAllyCheck=false;
+var allEnemyCheck=false;
+
 var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
 var enemyXOffset = 63;
+
+var options;
+
+$.getJSON("Assets/options.json", function(json) {
+  options = json;
+  console.log(options); // this will show the info it in firebug console
+});
 
 $('#dragEnemy1').draggable({
   drag: function() {
@@ -76,15 +92,6 @@ $('#dragAlly3').draggable({
     allyY3 = yPos;
   },
 });
-
-var ally1Check;
-var ally2Check;
-var ally3Check;
-var enemy1Check;
-var enemy2Check;
-var enemy3Check;
-var allAllyCheck;
-var allEnemyCheck;
 
 function valueChangedAlly1(){
   if(document.getElementById("allyChecked1").checked){
@@ -204,57 +211,28 @@ function valueChangedEnemyAll()
 
 function generateJson()
 {
-  let test={//this should really load a file, and change values. Allowing for presets
-    "VIDEO_FPS_BACKGROUND" : "REFRESH_RATE",
-    "VIDEO_FPS_FOREGROUND" : "REFRESH_RATE",
-    "VIDEO_VSYNC" : "false",
-    "VIDEO_FULLSCREEN_MODE" : "false",
-    "NETWORK_REGION_USEAST1" : "true",
-    "CURSOR_HIGHLIGHTING" : "true",
-    "STICKY_TARGETING" : "true",
-    "PARTY_TABS" : "true",
-    "CLICK_ALLY_HOLD_SHIFT" : "true",
-    "CLICK_ENEMY_HOLD_CONTROL" : "true",
-    "NAMEPLATE_EMBEDDED_KEYBINDS" : "true",
-    "NAMEPLATE_USE_CHARACTER_NAME" : "true",
-    "NAMEPLATE_USE_CLASS_NAME" : "true",
-    "NAMEPLATE_USE_KEYBIND" : "false",
-    "NAMEPLATE_USE_NUMBER" : "false",
-    "NAMEPLATE_TARGET_INDICATOR_ALLY" : "true",
-    "NAMEPLATE_TARGET_INDICATOR_ENEMY" : "true",
-    "NAMEPLATE_HIDE_ALLY" : String(allAllyCheck),
-    "NAMEPLATE_HIDE_ENEMY" : String(allEnemyCheck),
-    "ALLY_TARGET_FEET_GLOW" : "true",
-    "ALLY_PARTY_FRAME_SPACER" : "0",
-    "ALLY_1_PARTY_FRAME_HIDDEN" : String(ally1Check),
-    "ALLY_1_PARTY_FRAME_X_OFFSET" : String(allyX1),
-    "ALLY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY1),
-    "ALLY_2_PARTY_FRAME_HIDDEN" : String(ally2Check),
-    "ALLY_2_PARTY_FRAME_X_OFFSET" : String(allyX2),
-    "ALLY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY2),
-    "ALLY_3_PARTY_FRAME_HIDDEN" : String(ally3Check),
-    "ALLY_3_PARTY_FRAME_X_OFFSET" : String(allyX3),
-    "ALLY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY3),
-    "ENEMY_TARGET_FEET_GLOW" : "true",
-    "ENEMY_PARTY_FRAME_SPACER" : "0",
-    "ENEMY_1_PARTY_FRAME_HIDDEN" : String(enemy1Check),
-    "ENEMY_1_PARTY_FRAME_X_OFFSET" : String(enemyX1-enemyXOffset),
-    "ENEMY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY1),
-    "ENEMY_2_PARTY_FRAME_HIDDEN" : String(enemy2Check),
-    "ENEMY_2_PARTY_FRAME_X_OFFSET" : String(enemyX2-enemyXOffset),
-    "ENEMY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY2),
-    "ENEMY_3_PARTY_FRAME_HIDDEN" : String(enemy3Check),
-    "ENEMY_3_PARTY_FRAME_X_OFFSET" : String(enemyX3-enemyXOffset),
-    "ENEMY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY3),
-    "SHOW_PLAY_UI_LONGBAR" : "true",
-    "SHOW_PLAY_UI_BACKDROP" : "true",
-    "VOLUME_LEVEL" : "100",
-    "PLAY_HIDE_CHANNEL_CHAT" : "false",
-    "PLAY_HIDE_CHANNEL_FRAME" : "true",
-    "PLAY_ROLE_QUEUE_DPS" : "false",
-    "PLAY_ROLE_QUEUE_HEALER" : "false"
-  }
-  return test;
+  options.NAMEPLATE_HIDE_ALLY=String(allAllyCheck);
+  options.NAMEPLATE_HIDE_ENEMY=String(allEnemyCheck);
+  options.ALLY_1_PARTY_FRAME_HIDDEN=String(ally1Check);
+  options.ALLY_1_PARTY_FRAME_X_OFFSET=String(allyX1);
+  options.ALLY_1_PARTY_FRAME_Y_OFFSET=String(yOffset-allyY1);
+  options.ALLY_2_PARTY_FRAME_HIDDEN=String(ally2Check);
+  options.ALLY_2_PARTY_FRAME_X_OFFSET=String(allyX2);
+  options.ALLY_2_PARTY_FRAME_Y_OFFSET=String(yOffset-allyY2);
+  options.ALLY_3_PARTY_FRAME_HIDDEN=String(ally3Check);
+  options.ALLY_3_PARTY_FRAME_X_OFFSET=String(allyX3);
+  options.ALLY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-allyY3);
+  options.ENEMY_1_PARTY_FRAME_HIDDEN=String(enemy1Check);
+  options.ENEMY_1_PARTY_FRAME_X_OFFSET=String(enemyX1-enemyXOffset);
+  options.ENEMY_1_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY1);
+  options.ENEMY_2_PARTY_FRAME_HIDDEN=String(enemy2Check);
+  options.ENEMY_2_PARTY_FRAME_X_OFFSET=String(enemyX2-enemyXOffset);
+  options.ENEMY_2_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY2);
+  options.ENEMY_3_PARTY_FRAME_HIDDEN=String(enemy3Check);
+  options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(enemyX3-enemyXOffset);
+  options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY3);
+
+  return options;
 }
 
 function download(text) {
