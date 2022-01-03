@@ -22,7 +22,7 @@ body {
   width: 219px;
   height: 84px;
   float: left;
-  top: 800px;
+  top: 300px;
   clear: both;
   /* border: 1px solid black; */
 }
@@ -32,7 +32,7 @@ body {
   float: left;
   width: 219px;
   height: 84px;
-  top: 700px;
+  top: 400px;
   clear: both;
   /* border: 1px solid black; */
 }
@@ -42,7 +42,7 @@ body {
   float: left;
   width: 219px;
   height: 84px;
-  top: 600px;
+  top: 500px;
   clear: both;
   /* border: 1px solid black; */
 }
@@ -52,7 +52,7 @@ body {
   overflow: hidden;
   width: 219px;
   height: 84px;
-  top: 500px;
+  top: 600px;
   clear: both;
   /* border: 1px solid black; */
 }
@@ -61,7 +61,7 @@ body {
   overflow: hidden;
   width: 219px;
   height: 84px;
-  top: 400px;
+  top: 700px;
   clear: both;
   /* border: 1px solid black; */
 }
@@ -70,7 +70,7 @@ body {
   overflow: hidden;
   width: 219px;
   height: 84px;
-  top: 300px;
+  top: 800px;
   clear: both;
   /* border: 1px solid black; */
 }
