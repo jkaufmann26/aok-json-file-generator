@@ -3,7 +3,7 @@ var options = function () {
   var jsonTemp = null;
   $.ajax({
       'async': false,
-      'url': "Presets/options.json",
+      'url': "Presets/default.json",
       'success': function (data) {
           jsonTemp = data;
       }
