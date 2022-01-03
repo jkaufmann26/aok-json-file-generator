@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<div class="container">
+<div class="backgroundWithoutPartyFrame" id= "background">
 
 <div id="dragEnemy1">
   <img src="Assets\enemy1.png" class = "drag-lich" id="draggable"/>
@@ -72,6 +72,11 @@
   <input type="checkbox" id="allEnemyChecked" name="All"
          checked onchange="valueChangedEnemyAll()">
   <label for="all">Enable All Enemy Nameplates</label>
+</div>
+<div>
+  <input type="checkbox" id="partyFrame" name="All"
+         unchecked onchange="valueChangedPartyFrame()">
+  <label for="all">Enable Party Frame</label>
 </div>
 </fieldset>
 </div>

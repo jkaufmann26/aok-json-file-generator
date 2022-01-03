@@ -55,6 +55,8 @@ $('#dragEnemy1').draggable({
     enemyX1 = xPos;
     enemyY1 = yPos;
   },
+  grid: [ 10, 10 ],
+  snap: true,
 });
 
 $('#dragEnemy2').draggable({
@@ -65,6 +67,8 @@ $('#dragEnemy2').draggable({
     enemyX2 = xPos;
     enemyY2 = yPos;
   },
+  grid: [ 10, 10 ],
+  snap: true,
 });
 $('#dragEnemy3').draggable({
   drag: function() {
@@ -74,6 +78,8 @@ $('#dragEnemy3').draggable({
     enemyX3 = xPos;
     enemyY3 = yPos;
   },
+  grid: [ 10, 10 ],
+  snap: true,
 });
 
 $('#dragAlly1').draggable({
@@ -84,6 +90,8 @@ $('#dragAlly1').draggable({
     allyX1 = xPos;
     allyY1 = yPos;
   },
+  grid: [ 10, 10 ],
+  snap: true,
 });
 
 
@@ -95,6 +103,8 @@ $('#dragAlly2').draggable({
     allyX2 = xPos;
     allyY2 = yPos;
   },
+  grid: [ 10, 10 ],
+  snap: true,
 });
 
 
@@ -106,6 +116,8 @@ $('#dragAlly3').draggable({
     allyX3 = xPos;
     allyY3 = yPos;
   },
+  grid: [ 10, 10 ],
+  snap: true,
 });
 
 function valueChangedAlly1(){
@@ -223,6 +235,18 @@ function valueChangedEnemyAll()
   }
 }
 
+var partyTab;
+function valueChangedPartyFrame()
+{
+  if(document.getElementById("partyFrame").checked){
+    document.getElementById("background").className = "backgroundWithPartyFrame";
+    partyTab = true;
+  }
+  else{
+    document.getElementById("background").className = "backgroundWithoutPartyFrame";
+    partyTab = false;
+  }
+}
 
 function generateJson()
 {
@@ -246,6 +270,7 @@ function generateJson()
   options.ENEMY_3_PARTY_FRAME_HIDDEN=String(enemy3Check);
   options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(enemyX3-enemyXOffset);
   options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY3);
+  options.PARTY_TAB=String(partyTab);
 
   return options;
 }
