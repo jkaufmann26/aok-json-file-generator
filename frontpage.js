@@ -26,7 +26,7 @@ var enemyXOffset = 63;
 
 var options;
 
-$.getJSON("Assets/options.json", function(json) {
+$.getJSON("Presets/options.json", function(json) {
   options = json;
   console.log(options); // this will show the info it in firebug console
 });
@@ -38,7 +38,6 @@ $('#dragEnemy1').draggable({
     var yPos = Math.abs(offset.top);
     enemyX1 = xPos;
     enemyY1 = yPos;
-    console.log('enemyx1: ',xPos,'enemyy1: ', yPos);
   },
 });
 
