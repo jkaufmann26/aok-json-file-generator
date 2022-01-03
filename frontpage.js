@@ -219,6 +219,18 @@ function valueChangedEnemyAll()
   }
 }
 
+var partyTab;
+function valueChangedPartyFrame()
+{
+  if(document.getElementById("partyFrame").checked){
+    document.getElementById("background").className = "backgroundWithPartyFrame";
+    partyTab = true;
+  }
+  else{
+    document.getElementById("background").className = "backgroundWithoutPartyFrame";
+    partyTab = false;
+  }
+}
 
 function generateJson()
 {
@@ -242,6 +254,7 @@ function generateJson()
   options.ENEMY_3_PARTY_FRAME_HIDDEN=String(enemy3Check);
   options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(enemyX3-enemyXOffset);
   options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY3);
+  options.PARTY_TAB=String(partyTab);
 
   return options;
 }

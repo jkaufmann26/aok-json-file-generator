@@ -1,5 +1,16 @@
-.container {
+.backgroundWithoutPartyFrame {
   background-image: url('Assets/no_frames.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height:100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.backgroundWithPartyFrame {
+  background-image: url('Assets/no_frames_with_partyF.png');
   background-repeat: no-repeat;
   width: 100%;
   height:100%;
@@ -91,7 +102,7 @@ fieldset {
   position: fixed;
   float: right;
   width: 250px;
-  height: 200px;
+  height: 220px;
   top: 0px;
   right: 0px;
 }
