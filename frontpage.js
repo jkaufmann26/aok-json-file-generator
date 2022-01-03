@@ -3,7 +3,7 @@ var options = function () {
   var jsonTemp = null;
   $.ajax({
       'async': false,
-      'url': "Presets/default.json",
+      'url': "Presets/original.json",
       'success': function (data) {
           jsonTemp = data;
       }
@@ -14,19 +14,19 @@ console.log(options);
 
 var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
 var enemyXOffset = 63;
-var enemyX1=options.ENEMY_1_PARTY_FRAME_X_OFFSET;
-var enemyX2=options.ENEMY_2_PARTY_FRAME_X_OFFSET;
-var enemyX3=options.ENEMY_3_PARTY_FRAME_X_OFFSET;
-var enemyY1=options.ENEMY_1_PARTY_FRAME_Y_OFFSET;
-var enemyY2=options.ENEMY_2_PARTY_FRAME_Y_OFFSET;
-var enemyY3=options.ENEMY_3_PARTY_FRAME_Y_OFFSET;
+var enemyX1=parseInt(options.ENEMY_1_PARTY_FRAME_X_OFFSET);
+var enemyX2=parseInt(options.ENEMY_2_PARTY_FRAME_X_OFFSET);
+var enemyX3=parseInt(options.ENEMY_3_PARTY_FRAME_X_OFFSET);
+var enemyY1=parseInt(options.ENEMY_1_PARTY_FRAME_Y_OFFSET);
+var enemyY2=parseInt(options.ENEMY_2_PARTY_FRAME_Y_OFFSET);
+var enemyY3=parseInt(options.ENEMY_3_PARTY_FRAME_Y_OFFSET);
 
-var allyX1=options.ALLY_1_PARTY_FRAME_X_OFFSET;
-var allyX2=options.ALLY_2_PARTY_FRAME_X_OFFSET;
-var allyX3=options.ALLY_3_PARTY_FRAME_X_OFFSET;
-var allyY1=options.ALLY_1_PARTY_FRAME_Y_OFFSET;
-var allyY2=options.ALLY_2_PARTY_FRAME_Y_OFFSET;
-var allyY3=options.ALLY_3_PARTY_FRAME_Y_OFFSET;
+var allyX1=parseInt(options.ALLY_1_PARTY_FRAME_X_OFFSET);
+var allyX2=parseInt(options.ALLY_2_PARTY_FRAME_X_OFFSET);
+var allyX3=parseInt(options.ALLY_3_PARTY_FRAME_X_OFFSET);
+var allyY1=parseInt(options.ALLY_1_PARTY_FRAME_Y_OFFSET);
+var allyY2=parseInt(options.ALLY_2_PARTY_FRAME_Y_OFFSET);
+var allyY3=parseInt(options.ALLY_3_PARTY_FRAME_Y_OFFSET);
 
 var ally1Check=false;
 var ally2Check=false;
@@ -292,9 +292,9 @@ function download(text) {
 
 function updateVars()
 {
-  $('#dragEnemy1').css({'top':yOffset-enemyY1,'left':enemyX1-enemyXOffset,'position':'absolute'});
-  $('#dragEnemy2').css({'top':yOffset-enemyY2,'left':enemyX2-enemyXOffset,'position':'absolute'});
-  $('#dragEnemy3').css({'top':yOffset-enemyY3,'left':enemyX3-enemyXOffset,'position':'absolute'});
+  $('#dragEnemy1').css({'top':yOffset-enemyY1,'left':enemyX1+enemyXOffset,'position':'absolute'});
+  $('#dragEnemy2').css({'top':yOffset-enemyY2,'left':enemyX2+enemyXOffset,'position':'absolute'});
+  $('#dragEnemy3').css({'top':yOffset-enemyY3,'left':enemyX3+enemyXOffset,'position':'absolute'});
 
   $('#dragAlly1').css({'top':yOffset-allyY1,'left':allyX1,'position':'absolute'});
   $('#dragAlly2').css({'top':yOffset-allyY2,'left':allyX2,'position':'absolute'});
