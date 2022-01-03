@@ -83,7 +83,8 @@ var ally3Check;
 var enemy1Check;
 var enemy2Check;
 var enemy3Check;
-
+var allAllyCheck;
+var allEnemyCheck;
 
 function valueChangedAlly1(){
   if(document.getElementById("allyChecked1").checked){
@@ -156,6 +157,50 @@ function valueChangedEnemy3()
   }
 }
 
+function valueChangedAllyAll()
+{
+  if(document.getElementById("allAllyChecked").checked){
+    document.getElementById('dragAlly1').style.display = 'block';
+    document.getElementById("allyChecked1").checked = true;
+    document.getElementById('dragAlly2').style.display = 'block';
+    document.getElementById("allyChecked2").checked = true;
+    document.getElementById('dragAlly3').style.display = 'block';
+    document.getElementById("allyChecked3").checked = true;
+    allAllyCheck = true;
+  }
+  else{
+    document.getElementById('dragAlly1').style.display = 'none';
+    document.getElementById("allyChecked1").checked = false;
+    document.getElementById('dragAlly2').style.display = 'none';
+    document.getElementById("allyChecked2").checked = false;
+    document.getElementById('dragAlly3').style.display = 'none';
+    document.getElementById("allyChecked3").checked = false;
+    allAllyCheck = false;
+  }
+}
+
+function valueChangedEnemyAll()
+{
+  if(document.getElementById("allEnemyChecked").checked){
+    document.getElementById('dragEnemy1').style.display = 'block';
+    document.getElementById("enemyChecked1").checked = true;
+    document.getElementById('dragEnemy2').style.display = 'block';
+    document.getElementById("enemyChecked2").checked = true;
+    document.getElementById('dragEnemy3').style.display = 'block';
+    document.getElementById("enemyChecked3").checked = true;
+    allEnemyCheck = true;
+  }
+  else{
+    document.getElementById('dragEnemy1').style.display = 'none';
+    document.getElementById("enemyChecked1").checked = false;
+    document.getElementById('dragEnemy2').style.display = 'none';
+    document.getElementById("enemyChecked2").checked = false;
+    document.getElementById('dragEnemy3').style.display = 'none';
+    document.getElementById("enemyChecked3").checked = false;
+    allEnemyCheck = false;
+  }
+}
+
 
 function generateJson()
 {
@@ -177,28 +222,28 @@ function generateJson()
     "NAMEPLATE_USE_NUMBER" : "false",
     "NAMEPLATE_TARGET_INDICATOR_ALLY" : "true",
     "NAMEPLATE_TARGET_INDICATOR_ENEMY" : "true",
-    "NAMEPLATE_HIDE_ALLY" : "false",
-    "NAMEPLATE_HIDE_ENEMY" : "false",
+    "NAMEPLATE_HIDE_ALLY" : String(allAllyCheck),
+    "NAMEPLATE_HIDE_ENEMY" : String(allEnemyCheck),
     "ALLY_TARGET_FEET_GLOW" : "true",
     "ALLY_PARTY_FRAME_SPACER" : "0",
-    "ALLY_1_PARTY_FRAME_HIDDEN" : ally1Check,
+    "ALLY_1_PARTY_FRAME_HIDDEN" : String(ally1Check),
     "ALLY_1_PARTY_FRAME_X_OFFSET" : String(allyX1),
     "ALLY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY1),
-    "ALLY_2_PARTY_FRAME_HIDDEN" : ally2Check,
+    "ALLY_2_PARTY_FRAME_HIDDEN" : String(ally2Check),
     "ALLY_2_PARTY_FRAME_X_OFFSET" : String(allyX2),
     "ALLY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY2),
-    "ALLY_3_PARTY_FRAME_HIDDEN" : ally3Check,
+    "ALLY_3_PARTY_FRAME_HIDDEN" : String(ally3Check),
     "ALLY_3_PARTY_FRAME_X_OFFSET" : String(allyX3),
     "ALLY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-allyY3),
     "ENEMY_TARGET_FEET_GLOW" : "true",
     "ENEMY_PARTY_FRAME_SPACER" : "0",
-    "ENEMY_1_PARTY_FRAME_HIDDEN" : enemy1Check,
+    "ENEMY_1_PARTY_FRAME_HIDDEN" : String(enemy1Check),
     "ENEMY_1_PARTY_FRAME_X_OFFSET" : String(enemyX1-enemyXOffset),
     "ENEMY_1_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY1),
-    "ENEMY_2_PARTY_FRAME_HIDDEN" : enemy2Check,
+    "ENEMY_2_PARTY_FRAME_HIDDEN" : String(enemy2Check),
     "ENEMY_2_PARTY_FRAME_X_OFFSET" : String(enemyX2-enemyXOffset),
     "ENEMY_2_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY2),
-    "ENEMY_3_PARTY_FRAME_HIDDEN" : enemy3Check,
+    "ENEMY_3_PARTY_FRAME_HIDDEN" : String(enemy3Check),
     "ENEMY_3_PARTY_FRAME_X_OFFSET" : String(enemyX3-enemyXOffset),
     "ENEMY_3_PARTY_FRAME_Y_OFFSET" : String(yOffset-enemyY3),
     "SHOW_PLAY_UI_LONGBAR" : "true",

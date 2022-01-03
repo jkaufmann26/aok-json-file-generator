@@ -63,9 +63,14 @@
   <label for="ally1">Enable Enemy 3</label>
 </div>
 <div>
-  <input type="checkbox" id="all" name="All"
-         checked>
-  <label for="all">Enable All Nameplates</label>
+  <input type="checkbox" id="allAllyChecked" name="All"
+         checked onchange="valueChangedAllyAll()">
+  <label for="all">Enable All Ally Nameplates</label>
+</div>
+<div>
+  <input type="checkbox" id="allEnemyChecked" name="All"
+         checked onchange="valueChangedEnemyAll()">
+  <label for="all">Enable All Enemy Nameplates</label>
 </div>
 </fieldset>
 

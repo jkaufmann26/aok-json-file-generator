@@ -24,6 +24,8 @@ body {
   /* top: 800px;
   left: 0px; */
   clear: both;
+  float: left;
+
   /* border: 1px solid black; */
 }
 #dragAlly2 {
@@ -31,6 +33,7 @@ body {
   width: 219px;
   height: 84px;
   clear: both;
+  float: left;
   /* border: 1px solid black; */
 }
 #dragAlly3 {
