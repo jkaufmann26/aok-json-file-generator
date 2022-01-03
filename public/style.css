@@ -1,0 +1,114 @@
+.backgroundWithoutPartyFrame {
+  background-image: url('Assets/no_frames.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height:100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.backgroundWithPartyFrame {
+  background-image: url('Assets/no_frames_with_partyF.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height:100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+}
+#dragAlly1 {
+  position: fixed;
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  float: left;
+  top: 300px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragAlly2 {
+  position: fixed;
+  overflow: hidden;
+  float: left;
+  width: 219px;
+  height: 84px;
+  top: 400px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragAlly3 {
+  position: fixed;
+  overflow: hidden;
+  float: left;
+  width: 219px;
+  height: 84px;
+  top: 500px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+
+#dragEnemy1 {
+  position: fixed;
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  top: 600px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragEnemy2 {
+  position: fixed;
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  top: 700px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+#dragEnemy3 {
+  position: fixed;
+  overflow: hidden;
+  width: 219px;
+  height: 84px;
+  top: 800px;
+  clear: both;
+  /* border: 1px solid black; */
+}
+@media screen and (min-width: 1024px){
+  .container{
+
+  }
+}
+
+@media screen and (max-width: 2048px){
+  .container{
+    
+  }
+}
+
+fieldset {
+  background-color: #eeeeee;
+  position: fixed;
+  float: right;
+  width: 250px;
+  height: 200px;
+  top: 0px;
+  right: 0px;
+}
+
+legend {
+  background-color: gray;
+  color: white;
+  padding: 5px 10px;
+}
