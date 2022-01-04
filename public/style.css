@@ -1,8 +1,9 @@
 .backgroundWithoutPartyFrame {
+  display: block;
   background-image: url('Assets/no_frames.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  min-height: 100%;
+  height: 100%;
 }
 
 @media all and (min-height: 1920px) {
@@ -12,10 +13,11 @@
 }
 
 .backgroundWithPartyFrame {
+  display: block;
   background-image: url('Assets/no_frames_with_partyF.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  min-height: 100%;
+  height: 100%;
 }
 
 @media all and (min-height: 1920px) {
