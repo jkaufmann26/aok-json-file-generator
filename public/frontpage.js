@@ -340,6 +340,9 @@ function updateVars()
 //this check only checks in the down/right direction, other ones can still have problems but like that shouldnt really ever happen with files
 //I dont even know what to do about this anymore, it's gone too far, 
 //84 is size of frame Y, 220 is size of frame X
+//? syntax is an inline if used as the following: `boolean ? true condition : false condition;`
+//This checks bounds and corrects them to the hard-coded values of frame size
+//If we end up needing to scale frames, this will have to change
   $('#dragEnemy1').css({'top':h<yOffset-enemyY1? h-84:yOffset-enemyY1,'left':w-220<enemyX1+enemyXOffset?w-220:enemyX1+enemyXOffset,'position':'absolute'});
   $('#dragEnemy2').css({'top':h<yOffset-enemyY2? h-84:yOffset-enemyY2,'left':w-220<enemyX2+enemyXOffset?w-220:enemyX2+enemyXOffset,'position':'absolute'});
   $('#dragEnemy3').css({'top':h<yOffset-enemyY3? h-84:yOffset-enemyY3,'left':w-220<enemyX3+enemyXOffset?w-220:enemyX3+enemyXOffset,'position':'absolute'});
