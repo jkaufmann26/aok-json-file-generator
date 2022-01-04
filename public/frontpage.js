@@ -50,6 +50,7 @@ $('#dragEnemy1').draggable({
   },
   grid: [ 1, 1 ],
   snap: true,
+  containment: "parent",
 });
 
 $('#dragEnemy2').draggable({
@@ -62,6 +63,7 @@ $('#dragEnemy2').draggable({
   },
   grid: [ 1, 1 ],
   snap: true,
+  containment: "parent" ,
 });
 $('#dragEnemy3').draggable({
   drag: function() {
@@ -73,6 +75,7 @@ $('#dragEnemy3').draggable({
   },
   grid: [ 1, 1 ],
   snap: true,
+  containment: "parent" ,
 });
 
 $('#dragAlly1').draggable({
@@ -85,6 +88,7 @@ $('#dragAlly1').draggable({
   },
   grid: [ 1, 1 ],
   snap: true,
+  containment: "parent",
 });
 
 
@@ -98,6 +102,7 @@ $('#dragAlly2').draggable({
   },
   grid: [ 1, 1 ],
   snap: true,
+  containment: "parent" ,
 });
 
 
@@ -111,6 +116,7 @@ $('#dragAlly3').draggable({
   },
   grid: [ 1, 1 ],
   snap: true,
+  containment: "parent" ,
 });
 
 $(document).keypress(function(event){
