@@ -32,8 +32,8 @@ loadJson("Presets/original.json");
 //Make sure everything in the json has an initial value, or it will populate the file with 'undefined'
 var keys = Object.keys(options);
 console.log(keys);
-var snapX = 5;
-var snapY = 5;
+var snapX = 20;
+var snapY = 20;
 
 
 $('#dragEnemy1').draggable({
