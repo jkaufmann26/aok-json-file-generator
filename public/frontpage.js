@@ -117,12 +117,12 @@ $('#dragAlly3').draggable({
 });
 
 //Commented the press enter to download, afraid a user will accidentally hold enter on like chrome or somethign that auto-dls could re-add with a confirm window maybe
-$(document).keypress(function(event){
-  var keycode = (event.keyCode ? event.keyCode : event.which);
-  if(keycode == '13'){
-      // download(JSON.stringify(generateJson(),null,'\t'));
-  }
-});
+// $(document).keypress(function(event){
+//   var keycode = (event.keyCode ? event.keyCode : event.which);
+//   if(keycode == '13'){
+//       // download(JSON.stringify(generateJson(),null,'\t'));
+//   }
+// });
 
 document.addEventListener('keydown', (e) => {
   switch(e.key){
