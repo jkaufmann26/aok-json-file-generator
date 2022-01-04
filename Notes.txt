@@ -12,7 +12,9 @@ Y choord is inverted from jQuery, will need a smarter solution to have multiple 
 
 There is about a 63 pixel x offset for the enemy frames (shift -63). This is probably for all resolutions unless ui gets scaled like that
 
+I checked other resolutions, unsuprisingly, all parts of the UI scale
+
 TODO:
 Two dropdowns, one for raw values of the json that can be modified
 Other for selecting presets - should be populated from list of files inside Presets dir
-Make offsets dynamic based off window size
+Make offsets dynamic based off window size, can probably use $(document).height() - height of frame (80 for 1920x1080)
