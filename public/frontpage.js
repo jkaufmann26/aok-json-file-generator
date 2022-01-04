@@ -11,6 +11,8 @@ var options = function () {
   return jsonTemp;
 }(); 
 console.log(options);
+var keys = Object.keys(options);
+console.log(keys);
 
 var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
 var enemyXOffset = 63;

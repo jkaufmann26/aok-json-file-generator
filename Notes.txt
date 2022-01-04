@@ -13,6 +13,5 @@ Y choord is inverted from jQuery, will need a smarter solution to have multiple 
 There is about a 63 pixel x offset for the enemy frames (shift -63). This is probably for all resolutions unless ui gets scaled like that
 
 TODO:
-Starting spots for Ally/enemies, think this should be done with some kind of init in js, I tried using css but that seems bad
-Setup a test enviornment with apache or something to test loading from a json file (cant be done from just reading html in browser)
-MIN HEIGHT MESSES UP firefox 100% isnt working for some reason
+Two dropdowns, one for raw values of the json that can be modified
+Other for selecting presets - should be populated from list of files inside Presets dir
