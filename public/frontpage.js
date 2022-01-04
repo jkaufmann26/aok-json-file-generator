@@ -44,6 +44,8 @@ var allAllyCheck=false;
 var allEnemyCheck=false;
 var partyTab=false;
 var showBar=true;
+var snapX = 5;
+var snapY = 5;
 
 updateVars();
 
@@ -128,14 +130,49 @@ $('#dragAlly3').draggable({
 });
 
 //Commented the press enter to download, afraid a user will accidentally hold enter on like chrome or somethign that auto-dls could re-add with a confirm window maybe
-// $(document).keypress(function(event){
-//   var keycode = (event.keyCode ? event.keyCode : event.which);
-//   if(keycode == '13'){
-//       download(JSON.stringify(generateJson(),null,'\t'));
-//   }
-// });
+$(document).keypress(function(event){
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  if(keycode == '13'){
+      // download(JSON.stringify(generateJson(),null,'\t'));
+  }
+});
 
+document.addEventListener('keydown', (e) => {
+  switch(e.key){
+    case "Shift":
+      enableSnap();
+      break;
+    case "-":
+      snapX-=5;
+      snapY-=5;
+      break;
+    case "=":
+      snapX+=5;
+      snapY+=5;
+      break;
+    case "_":
+      snapX-=25;
+      snapY-=25;
+      break;
+    case "+":
+      snapX+=25;
+      snapY+=25;
+      break;
+    default:
+      break;
+  }
+  if(snapX<1)
+    snapX=1;
+  if(snapY<1)
+    snapY=1;
+})
 
+window.addEventListener('keyup', (e) => {
+  if(e.key == "Shift")
+  {
+    disableSnap();
+  }
+})
 
 function valueChangedAlly1(){
   if(document.getElementById("allyChecked1").checked){
@@ -372,4 +409,32 @@ function updateVars()
   $('#dragAlly1').css({'top':h<yOffset-allyY1? h-84:yOffset-allyY1,'left':w-220<allyX1?w-220:allyX1,'position':'absolute'});
   $('#dragAlly2').css({'top':h<yOffset-allyY2? h-84:yOffset-allyY2,'left':w-220<allyX2?w-220:allyX2,'position':'absolute'});
   $('#dragAlly3').css({'top':h<yOffset-allyY3? h-84:yOffset-allyY3,'left':w-220<allyX3?w-220:allyX3,'position':'absolute'});
+  valueChangedAlly1();
+  valueChangedAlly2();
+  valueChangedAlly3();
+  valueChangedEnemy1();
+  valueChangedEnemy2();
+  valueChangedEnemy3();
+  valueChangedPartyFrame();
+  valueChangedBottomBar();
+}
+
+function enableSnap()
+{
+  $('#dragAlly1').draggable("option", "grid", [snapX,snapY]);
+  $('#dragAlly2').draggable("option", "grid", [snapX,snapY]);
+  $('#dragAlly3').draggable("option", "grid", [snapX,snapY]);
+  $('#dragEnemy1').draggable("option", "grid", [snapX,snapY]);
+  $('#dragEnemy2').draggable("option", "grid", [snapX,snapY]);
+  $('#dragEnemy3').draggable("option", "grid", [snapX,snapY]);
+}
+
+function disableSnap()
+{
+  $('#dragAlly1').draggable("option", "grid", [1,1]);
+  $('#dragAlly2').draggable("option", "grid", [1,1]);
+  $('#dragAlly3').draggable("option", "grid", [1,1]);
+  $('#dragEnemy1').draggable("option", "grid", [1,1]);
+  $('#dragEnemy2').draggable("option", "grid", [1,1]);
+  $('#dragEnemy3').draggable("option", "grid", [1,1]);
 }
