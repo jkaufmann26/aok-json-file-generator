@@ -29,9 +29,10 @@
 <div id="dragAlly3">
   <img src="Assets\ally3.png" class = "drag-lich" id="draggable"/>
 </div>
-
+<form>
 <fieldset>
-  <legend>UI Settings</legend>
+  <legend id="collapser" onclick=" collapse()">UI Settings</legend>
+  <div id="collapsable">
 <div>
   <input type="checkbox" id="allyChecked1" name="Ally1"
          checked onchange="valueChangedAlly1()">
@@ -82,10 +83,11 @@
 </div>
 
 <div>
-  <button class="button-14" role="button" onclick="generateJson()">Generate Json</button>
+  <button class="button-14" role="button" onclick="buttonGenerate()">Generate Json</button>
 </div>
-
+</div>
 </fieldset>
+</form>
 </div>
 
 </body>

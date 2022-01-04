@@ -277,6 +277,19 @@ function toggleFullScreen() {
   }  
 }
 
+function buttonGenerate(){
+  download(JSON.stringify(generateJson(),null,'\t'));
+}
+
+function collapse(){
+  if (document.getElementById("collapsable").style.display === "none") {
+    document.getElementById("collapsable").style.display = "block";
+    
+  } else {
+    document.getElementById("collapsable").style.display = "none";
+  }
+}
+
 function generateJson()
 {
   options.NAMEPLATE_HIDE_ALLY=String(allAllyCheck);
