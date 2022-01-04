@@ -30,11 +30,19 @@ loadJson("Presets/original.json");
 
 //All global definitions should be together up here, makes reading a lot easier
 //Make sure everything in the json has an initial value, or it will populate the file with 'undefined'
-var keys = Object.keys(options);
-console.log(keys);
+// var keys = Object.keys(options);
+// console.log(keys);
 var snapX = 20;
 var snapY = 20;
 
+function loadJsonText()
+{
+  var inFile = document.getElementById('jsonIn').value;
+  options = JSON.parse(inFile);
+  console.log(options);
+  updateVars();
+
+}
 
 $('#dragEnemy1').draggable({
   drag: function() {
@@ -381,6 +389,31 @@ function download(text) {
 
 function updateVars()
 {
+
+  yOffset = 1000; //verticle resolution - 80 in this case 1080-80
+  enemyXOffset = 63;
+  enemyX1=parseInt(options.ENEMY_1_PARTY_FRAME_X_OFFSET);
+  enemyX2=parseInt(options.ENEMY_2_PARTY_FRAME_X_OFFSET);
+  enemyX3=parseInt(options.ENEMY_3_PARTY_FRAME_X_OFFSET);
+  enemyY1=parseInt(options.ENEMY_1_PARTY_FRAME_Y_OFFSET);
+  enemyY2=parseInt(options.ENEMY_2_PARTY_FRAME_Y_OFFSET);
+  enemyY3=parseInt(options.ENEMY_3_PARTY_FRAME_Y_OFFSET);
+  allyX1=parseInt(options.ALLY_1_PARTY_FRAME_X_OFFSET);
+  allyX2=parseInt(options.ALLY_2_PARTY_FRAME_X_OFFSET);
+  allyX3=parseInt(options.ALLY_3_PARTY_FRAME_X_OFFSET);
+  allyY1=parseInt(options.ALLY_1_PARTY_FRAME_Y_OFFSET);
+  allyY2=parseInt(options.ALLY_2_PARTY_FRAME_Y_OFFSET);
+  allyY3=parseInt(options.ALLY_3_PARTY_FRAME_Y_OFFSET);
+  ally1Check='true'===options.ALLY_1_PARTY_FRAME_HIDDEN;
+  ally2Check='true'===options.ALLY_2_PARTY_FRAME_HIDDEN;
+  ally3Check='true'===options.ALLY_3_PARTY_FRAME_HIDDEN;
+  enemy1Check='true'===options.ENEMY_1_PARTY_FRAME_HIDDEN;
+  enemy2Check='true'===options.ENEMY_2_PARTY_FRAME_HIDDEN;
+  enemy3Check='true'===options.ENEMY_3_PARTY_FRAME_HIDDEN;
+  allAllyCheck='true'===options.NAMEPLATE_HIDE_ALLY;
+  allEnemyCheck='true'===options.NAMEPLATE_HIDE_ENEMY;
+  partyTab='true'===options.PARTY_TABS;
+  showBar='true'===options.SHOW_PLAY_UI_LONGBAR || 'true'===options.SHOW_PLAY_UI_BACKDROP;
   var h = $(document).height();
   var w = $(document).width();
 //this check only checks in the down/right direction, other ones can still have problems but like that shouldnt really ever happen with files
@@ -440,33 +473,6 @@ function loadJson(filename)
     return jsonTemp;
   }(); 
   console.log(options);
-
-
-  yOffset = 1000; //verticle resolution - 80 in this case 1080-80
-  enemyXOffset = 63;
-  enemyX1=parseInt(options.ENEMY_1_PARTY_FRAME_X_OFFSET);
-  enemyX2=parseInt(options.ENEMY_2_PARTY_FRAME_X_OFFSET);
-  enemyX3=parseInt(options.ENEMY_3_PARTY_FRAME_X_OFFSET);
-  enemyY1=parseInt(options.ENEMY_1_PARTY_FRAME_Y_OFFSET);
-  enemyY2=parseInt(options.ENEMY_2_PARTY_FRAME_Y_OFFSET);
-  enemyY3=parseInt(options.ENEMY_3_PARTY_FRAME_Y_OFFSET);
-  allyX1=parseInt(options.ALLY_1_PARTY_FRAME_X_OFFSET);
-  allyX2=parseInt(options.ALLY_2_PARTY_FRAME_X_OFFSET);
-  allyX3=parseInt(options.ALLY_3_PARTY_FRAME_X_OFFSET);
-  allyY1=parseInt(options.ALLY_1_PARTY_FRAME_Y_OFFSET);
-  allyY2=parseInt(options.ALLY_2_PARTY_FRAME_Y_OFFSET);
-  allyY3=parseInt(options.ALLY_3_PARTY_FRAME_Y_OFFSET);
-  ally1Check='true'===options.ALLY_1_PARTY_FRAME_HIDDEN;
-  ally2Check='true'===options.ALLY_2_PARTY_FRAME_HIDDEN;
-  ally3Check='true'===options.ALLY_3_PARTY_FRAME_HIDDEN;
-  enemy1Check='true'===options.ENEMY_1_PARTY_FRAME_HIDDEN;
-  enemy2Check='true'===options.ENEMY_2_PARTY_FRAME_HIDDEN;
-  enemy3Check='true'===options.ENEMY_3_PARTY_FRAME_HIDDEN;
-  allAllyCheck='true'===options.NAMEPLATE_HIDE_ALLY;
-  allEnemyCheck='true'===options.NAMEPLATE_HIDE_ENEMY;
-  partyTab='true'===options.PARTY_TABS;
-  showBar='true'===options.SHOW_PLAY_UI_LONGBAR || 'true'===options.SHOW_PLAY_UI_BACKDROP;
-
 
 updateVars();
 }
