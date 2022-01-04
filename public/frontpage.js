@@ -11,6 +11,10 @@ var options = function () {
   return jsonTemp;
 }(); 
 console.log(options);
+
+
+//All global definitions should be together up here, makes reading a lot easier
+//Make sure everything in the json has an initial value, or it will populate the file with 'undefined'
 var keys = Object.keys(options);
 console.log(keys);
 
@@ -38,6 +42,8 @@ var enemy2Check=false;
 var enemy3Check=false;
 var allAllyCheck=false;
 var allEnemyCheck=false;
+var partyTab=false;
+var showBar=true;
 
 updateVars();
 
@@ -121,12 +127,13 @@ $('#dragAlly3').draggable({
   containment: "parent" ,
 });
 
-$(document).keypress(function(event){
-  var keycode = (event.keyCode ? event.keyCode : event.which);
-  if(keycode == '13'){
-      download(JSON.stringify(generateJson(),null,'\t'));
-  }
-});
+//Commented the press enter to download, afraid a user will accidentally hold enter on like chrome or somethign that auto-dls could re-add with a confirm window maybe
+// $(document).keypress(function(event){
+//   var keycode = (event.keyCode ? event.keyCode : event.which);
+//   if(keycode == '13'){
+//       download(JSON.stringify(generateJson(),null,'\t'));
+//   }
+// });
 
 
 
@@ -200,6 +207,19 @@ function valueChangedEnemy3()
 
   }
 }
+    
+function valueChangedBottomBar()
+{
+  if(document.getElementById("bottomBar").checked){
+    document.getElementById('bottomBar').style.display = 'block';
+    showBar = true;
+  }
+  else{
+    document.getElementById('bottomBar').style.display = 'none';
+    showBar = false;
+
+  }
+}
 
 function valueChangedAllyAll()
 {
@@ -245,7 +265,6 @@ function valueChangedEnemyAll()
   }
 }
 
-var partyTab;
 function valueChangedPartyFrame()
 {
   if(document.getElementById("partyFrame").checked){
@@ -315,6 +334,9 @@ function generateJson()
   options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(enemyX3-enemyXOffset);
   options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY3);
   options.PARTY_TABS=String(partyTab);
+  options.SHOW_PLAY_UI_LONGBAR=String(showBar);
+  options.SHOW_PLAY_UI_BACKDROP=String(showBar);
+  
 
   return options;
 }
