@@ -99,6 +99,8 @@ fieldset {
   right: 0px;
 }
 
+
+
 legend {
   width: 85%;
   background-color: #82858a;
@@ -106,6 +108,14 @@ legend {
   padding: 3px 6px;
   cursor: pointer;
   display: inline-block;
+}
+
+form {
+  background-color: #eeeeeec4;
+  position: fixed;
+  float: right;
+  top: 0px;
+  left: 0px;
 }
 
 legend::after {
