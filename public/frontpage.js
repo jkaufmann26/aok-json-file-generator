@@ -46,6 +46,7 @@ $('#dragEnemy1').draggable({
     var yPos = Math.abs(offset.top);
     enemyX1 = xPos;
     enemyY1 = yPos;
+    console.log(enemyX1, enemyY1);
   },
   grid: [ 1, 1 ],
   snap: true,
@@ -271,7 +272,7 @@ function generateJson()
   options.ENEMY_3_PARTY_FRAME_HIDDEN=String(enemy3Check);
   options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(enemyX3-enemyXOffset);
   options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY3);
-  options.PARTY_TAB=String(partyTab);
+  options.PARTY_TABS=String(partyTab);
 
   return options;
 }
