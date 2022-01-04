@@ -5,7 +5,11 @@
   min-height: 100%;
 }
 
-
+@media all and (min-height: 1920px) {
+  .backgroundWithoutPartyFrame {
+    min-height: 100%;
+    }
+  }
 
 .backgroundWithPartyFrame {
   background-image: url('Assets/no_frames_with_partyF.png');
@@ -13,6 +17,12 @@
   background-repeat: no-repeat;
   min-height: 100%;
 }
+
+@media all and (min-height: 1920px) {
+  .backgroundWithPartyFrame {
+    min-height: 100%;
+    }
+  }
 
 body {
   margin: 0;
