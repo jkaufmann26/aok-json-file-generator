@@ -15,3 +15,4 @@ There is about a 63 pixel x offset for the enemy frames (shift -63). This is pro
 TODO:
 Starting spots for Ally/enemies, think this should be done with some kind of init in js, I tried using css but that seems bad
 Setup a test enviornment with apache or something to test loading from a json file (cant be done from just reading html in browser)
+MIN HEIGHT MESSES UP firefox 100% isnt working for some reason
