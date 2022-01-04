@@ -92,7 +92,8 @@ body {
 fieldset {
   background-color: #eeeeee;
   position: fixed;
-  float: right;
+  top: 0px;
+  right: 0px;
 }
 
 legend {
