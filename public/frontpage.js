@@ -1,53 +1,40 @@
+var options;
 
-var options = function () {
-  var jsonTemp = null;
-  $.ajax({
-      'async': false,
-      'url': "Presets/original.json",
-      'success': function (data) {
-          jsonTemp = data;
-      }
-  });
-  return jsonTemp;
-}(); 
-console.log(options);
+var yOffset;
+var enemyXOffset;
+var enemyX1;
+var enemyX2;
+var enemyX3;
+var enemyY1;
+var enemyY2;
+var enemyY3;
 
+var allyX1;
+var allyX2;
+var allyX3;
+var allyY1;
+var allyY2;
+var allyY3;
+
+var ally1Check;
+var ally2Check;
+var ally3Check;
+var enemy1Check;
+var enemy2Check;
+var enemy3Check;
+var allAllyCheck;
+var allEnemyCheck;
+var partyTab;
+var showBar;
+loadJson("Presets/original.json");
 
 //All global definitions should be together up here, makes reading a lot easier
 //Make sure everything in the json has an initial value, or it will populate the file with 'undefined'
 var keys = Object.keys(options);
 console.log(keys);
-
-var yOffset = 1000; //verticle resolution - 80 in this case 1080-80
-var enemyXOffset = 63;
-var enemyX1=parseInt(options.ENEMY_1_PARTY_FRAME_X_OFFSET);
-var enemyX2=parseInt(options.ENEMY_2_PARTY_FRAME_X_OFFSET);
-var enemyX3=parseInt(options.ENEMY_3_PARTY_FRAME_X_OFFSET);
-var enemyY1=parseInt(options.ENEMY_1_PARTY_FRAME_Y_OFFSET);
-var enemyY2=parseInt(options.ENEMY_2_PARTY_FRAME_Y_OFFSET);
-var enemyY3=parseInt(options.ENEMY_3_PARTY_FRAME_Y_OFFSET);
-
-var allyX1=parseInt(options.ALLY_1_PARTY_FRAME_X_OFFSET);
-var allyX2=parseInt(options.ALLY_2_PARTY_FRAME_X_OFFSET);
-var allyX3=parseInt(options.ALLY_3_PARTY_FRAME_X_OFFSET);
-var allyY1=parseInt(options.ALLY_1_PARTY_FRAME_Y_OFFSET);
-var allyY2=parseInt(options.ALLY_2_PARTY_FRAME_Y_OFFSET);
-var allyY3=parseInt(options.ALLY_3_PARTY_FRAME_Y_OFFSET);
-
-var ally1Check=false;
-var ally2Check=false;
-var ally3Check=false;
-var enemy1Check=false;
-var enemy2Check=false;
-var enemy3Check=false;
-var allAllyCheck=false;
-var allEnemyCheck=false;
-var partyTab=false;
-var showBar=true;
 var snapX = 5;
 var snapY = 5;
 
-updateVars();
 
 $('#dragEnemy1').draggable({
   drag: function() {
@@ -176,44 +163,44 @@ window.addEventListener('keyup', (e) => {
 
 function valueChangedAlly1(){
   if(document.getElementById("allyChecked1").checked){
-    document.getElementById('dragAlly1').style.display = 'block';
+    document.getElementById('dragAlly1').style.display = 'none';
     ally1Check = true;
   }
   else{
-    document.getElementById('dragAlly1').style.display = 'none';
+    document.getElementById('dragAlly1').style.display = 'block';
     ally1Check = false
   }
 }
     
 function valueChangedAlly2(){
   if(document.getElementById("allyChecked2").checked){
-    document.getElementById('dragAlly2').style.display = 'block';
+    document.getElementById('dragAlly2').style.display = 'none';
     ally2Check = true;
   }
   else {
-    document.getElementById('dragAlly2').style.display = 'none';
+    document.getElementById('dragAlly2').style.display = 'block';
     ally2Check = false;
   }
 }
 
 function valueChangedAlly3(){
   if(document.getElementById("allyChecked3").checked){
-    document.getElementById('dragAlly3').style.display = 'block';
+    document.getElementById('dragAlly3').style.display = 'none';
     ally3Check = true;
   }
   else{ 
-    document.getElementById('dragAlly3').style.display = 'none';
+    document.getElementById('dragAlly3').style.display = 'block';
     ally3Check = false;
   }
 }
     
 function valueChangedEnemy1(){
     if(document.getElementById("enemyChecked1").checked){
-      document.getElementById('dragEnemy1').style.display = 'block';
+      document.getElementById('dragEnemy1').style.display = 'none';
       enemy1Check = true;
     }
     else{
-      document.getElementById('dragEnemy1').style.display = 'none';
+      document.getElementById('dragEnemy1').style.display = 'block';
       enemy1Check = false;
     }
 
@@ -222,11 +209,11 @@ function valueChangedEnemy1(){
 function valueChangedEnemy2()
 {
   if(document.getElementById("enemyChecked2").checked){
-    document.getElementById('dragEnemy2').style.display = 'block';
+    document.getElementById('dragEnemy2').style.display = 'none';
     enemy2Check = true;
   }
   else{
-    document.getElementById('dragEnemy2').style.display = 'none';
+    document.getElementById('dragEnemy2').style.display = 'block';
     enemy2Check = false;
 
   }
@@ -235,11 +222,11 @@ function valueChangedEnemy2()
 function valueChangedEnemy3()
 {
   if(document.getElementById("enemyChecked3").checked){
-    document.getElementById('dragEnemy3').style.display = 'block';
+    document.getElementById('dragEnemy3').style.display = 'none';
     enemy3Check = true;
   }
   else{
-    document.getElementById('dragEnemy3').style.display = 'none';
+    document.getElementById('dragEnemy3').style.display = 'block';
     enemy3Check = false;
 
   }
@@ -261,20 +248,20 @@ function valueChangedBottomBar()
 function valueChangedAllyAll()
 {
   if(document.getElementById("allAllyChecked").checked){
-    document.getElementById('dragAlly1').style.display = 'block';
+    document.getElementById('dragAlly1').style.display = 'none';
     document.getElementById("allyChecked1").checked = true;
-    document.getElementById('dragAlly2').style.display = 'block';
+    document.getElementById('dragAlly2').style.display = 'none';
     document.getElementById("allyChecked2").checked = true;
-    document.getElementById('dragAlly3').style.display = 'block';
+    document.getElementById('dragAlly3').style.display = 'none';
     document.getElementById("allyChecked3").checked = true;
     allAllyCheck = true;
   }
   else{
-    document.getElementById('dragAlly1').style.display = 'none';
+    document.getElementById('dragAlly1').style.display = 'block';
     document.getElementById("allyChecked1").checked = false;
-    document.getElementById('dragAlly2').style.display = 'none';
+    document.getElementById('dragAlly2').style.display = 'block';
     document.getElementById("allyChecked2").checked = false;
-    document.getElementById('dragAlly3').style.display = 'none';
+    document.getElementById('dragAlly3').style.display = 'block';
     document.getElementById("allyChecked3").checked = false;
     allAllyCheck = false;
   }
@@ -283,20 +270,20 @@ function valueChangedAllyAll()
 function valueChangedEnemyAll()
 {
   if(document.getElementById("allEnemyChecked").checked){
-    document.getElementById('dragEnemy1').style.display = 'block';
+    document.getElementById('dragEnemy1').style.display = 'none';
     document.getElementById("enemyChecked1").checked = true;
-    document.getElementById('dragEnemy2').style.display = 'block';
+    document.getElementById('dragEnemy2').style.display = 'none';
     document.getElementById("enemyChecked2").checked = true;
-    document.getElementById('dragEnemy3').style.display = 'block';
+    document.getElementById('dragEnemy3').style.display = 'none';
     document.getElementById("enemyChecked3").checked = true;
     allEnemyCheck = true;
   }
   else{
-    document.getElementById('dragEnemy1').style.display = 'none';
+    document.getElementById('dragEnemy1').style.display = 'block';
     document.getElementById("enemyChecked1").checked = false;
-    document.getElementById('dragEnemy2').style.display = 'none';
+    document.getElementById('dragEnemy2').style.display = 'block';
     document.getElementById("enemyChecked2").checked = false;
-    document.getElementById('dragEnemy3').style.display = 'none';
+    document.getElementById('dragEnemy3').style.display = 'block';
     document.getElementById("enemyChecked3").checked = false;
     allEnemyCheck = false;
   }
@@ -437,4 +424,49 @@ function disableSnap()
   $('#dragEnemy1').draggable("option", "grid", [1,1]);
   $('#dragEnemy2').draggable("option", "grid", [1,1]);
   $('#dragEnemy3').draggable("option", "grid", [1,1]);
+}
+
+function loadJson(filename)
+{
+  options = function () {
+    var jsonTemp = null;
+    $.ajax({
+        'async': false,
+        'url': filename,
+        'success': function (data) {
+            jsonTemp = data;
+        }
+    });
+    return jsonTemp;
+  }(); 
+  console.log(options);
+
+
+  yOffset = 1000; //verticle resolution - 80 in this case 1080-80
+  enemyXOffset = 63;
+  enemyX1=parseInt(options.ENEMY_1_PARTY_FRAME_X_OFFSET);
+  enemyX2=parseInt(options.ENEMY_2_PARTY_FRAME_X_OFFSET);
+  enemyX3=parseInt(options.ENEMY_3_PARTY_FRAME_X_OFFSET);
+  enemyY1=parseInt(options.ENEMY_1_PARTY_FRAME_Y_OFFSET);
+  enemyY2=parseInt(options.ENEMY_2_PARTY_FRAME_Y_OFFSET);
+  enemyY3=parseInt(options.ENEMY_3_PARTY_FRAME_Y_OFFSET);
+  allyX1=parseInt(options.ALLY_1_PARTY_FRAME_X_OFFSET);
+  allyX2=parseInt(options.ALLY_2_PARTY_FRAME_X_OFFSET);
+  allyX3=parseInt(options.ALLY_3_PARTY_FRAME_X_OFFSET);
+  allyY1=parseInt(options.ALLY_1_PARTY_FRAME_Y_OFFSET);
+  allyY2=parseInt(options.ALLY_2_PARTY_FRAME_Y_OFFSET);
+  allyY3=parseInt(options.ALLY_3_PARTY_FRAME_Y_OFFSET);
+  ally1Check='true'===options.ALLY_1_PARTY_FRAME_HIDDEN;
+  ally2Check='true'===options.ALLY_2_PARTY_FRAME_HIDDEN;
+  ally3Check='true'===options.ALLY_3_PARTY_FRAME_HIDDEN;
+  enemy1Check='true'===options.ENEMY_1_PARTY_FRAME_HIDDEN;
+  enemy2Check='true'===options.ENEMY_2_PARTY_FRAME_HIDDEN;
+  enemy3Check='true'===options.ENEMY_3_PARTY_FRAME_HIDDEN;
+  allAllyCheck='true'===options.NAMEPLATE_HIDE_ALLY;
+  allEnemyCheck='true'===options.NAMEPLATE_HIDE_ENEMY;
+  partyTab='true'===options.PARTY_TABS;
+  showBar='true'===options.SHOW_PLAY_UI_LONGBAR || 'true'===options.SHOW_PLAY_UI_BACKDROP;
+
+
+updateVars();
 }
