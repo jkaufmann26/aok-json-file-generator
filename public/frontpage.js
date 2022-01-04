@@ -335,11 +335,16 @@ function download(text) {
 
 function updateVars()
 {
-  $('#dragEnemy1').css({'top':yOffset-enemyY1,'left':enemyX1+enemyXOffset,'position':'absolute'});
-  $('#dragEnemy2').css({'top':yOffset-enemyY2,'left':enemyX2+enemyXOffset,'position':'absolute'});
-  $('#dragEnemy3').css({'top':yOffset-enemyY3,'left':enemyX3+enemyXOffset,'position':'absolute'});
+  var h = $(document).height();
+  var w = $(document).width();
+//this check only checks in the down/right direction, other ones can still have problems but like that shouldnt really ever happen with files
+//I dont even know what to do about this anymore, it's gone too far, 
+//84 is size of frame Y, 220 is size of frame X
+  $('#dragEnemy1').css({'top':h<yOffset-enemyY1? h-84:yOffset-enemyY1,'left':w-220<enemyX1+enemyXOffset?w-220:enemyX1+enemyXOffset,'position':'absolute'});
+  $('#dragEnemy2').css({'top':h<yOffset-enemyY2? h-84:yOffset-enemyY2,'left':w-220<enemyX2+enemyXOffset?w-220:enemyX2+enemyXOffset,'position':'absolute'});
+  $('#dragEnemy3').css({'top':h<yOffset-enemyY3? h-84:yOffset-enemyY3,'left':w-220<enemyX3+enemyXOffset?w-220:enemyX3+enemyXOffset,'position':'absolute'});
 
-  $('#dragAlly1').css({'top':yOffset-allyY1,'left':allyX1,'position':'absolute'});
-  $('#dragAlly2').css({'top':yOffset-allyY2,'left':allyX2,'position':'absolute'});
-  $('#dragAlly3').css({'top':yOffset-allyY3,'left':allyX3,'position':'absolute'});
+  $('#dragAlly1').css({'top':h<yOffset-allyY1? h-84:yOffset-allyY1,'left':w-220<allyX1?w-220:allyX1,'position':'absolute'});
+  $('#dragAlly2').css({'top':h<yOffset-allyY2? h-84:yOffset-allyY2,'left':w-220<allyX2?w-220:allyX2,'position':'absolute'});
+  $('#dragAlly3').css({'top':h<yOffset-allyY3? h-84:yOffset-allyY3,'left':w-220<allyX3?w-220:allyX3,'position':'absolute'});
 }

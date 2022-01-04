@@ -15,3 +15,4 @@ There is about a 63 pixel x offset for the enemy frames (shift -63). This is pro
 TODO:
 Two dropdowns, one for raw values of the json that can be modified
 Other for selecting presets - should be populated from list of files inside Presets dir
+Make offsets dynamic based off window size
