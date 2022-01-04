@@ -38,6 +38,9 @@
   <img src="Assets\ally3.png" class = "drag-lich" id="draggable"/>
 </div>
 
+<div id="bottomBar">
+</div>
+
 <fieldset>
   <legend id="collapser" onclick=" collapse()">UI Settings</legend>
   <div id="collapsable">
@@ -87,9 +90,9 @@
   <label for="all">Enable Party Tabs</label>
 </div>
 <div>
-  <input type="checkbox" id="bottomBar" name="All"
-         checked onchange="valueChangedBottomBar()">
-  <label for="all">Enable Bottom Black Bar (Not shown)</label>
+  <input type="checkbox" id="bottomBarChecked" name="All"
+         unchecked onchange="valueChangedBottomBar()">
+  <label for="all">Enable Bottom Black Bar</label>
 </div>
 <div>
   <button class="button-14" role="button" onclick="toggleFullScreen()">Fullscreen (Preferred)</button>
