@@ -92,6 +92,7 @@ body {
 fieldset {
   background-color: #eeeeee;
   position: fixed;
+  float: right;
   top: 0px;
   right: 0px;
 }
@@ -106,7 +107,6 @@ legend {
 }
 
 legend::after {
-  display: inline-block;
   content: "▼";
   float: right;
 }
