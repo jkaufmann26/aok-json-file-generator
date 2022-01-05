@@ -44,6 +44,24 @@ function loadJsonText()
 
 }
 
+function handleFileSelect(evt) {
+  const reader = new FileReader()
+  reader.onload = handleFileLoad;
+  reader.readAsText(event.target.files[0])
+}
+
+function handleFileLoad(event){
+  console.log(event);
+  // document.getElementById('fileContent').textContent = event.target.result;
+  options= JSON.parse(event.target.result);
+  console.log(options);
+  updateVars();
+}
+
+function init(){
+  document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
+}
+
 $('#dragEnemy1').draggable({
   drag: function() {
     var offset = $(this).offset();

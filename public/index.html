@@ -9,11 +9,19 @@
 <body>
 <div class="backgroundWithoutPartyFrame" id= "background">
 
-  
+
+  <!-- <form enctype="multipart/form-data">
+    <input id="upload" type=file   accept="text/json" name="files[]" size=30>
+  </form> -->
 <form id="jsonInput">
   <label for="jsonIn">Load JSON (from text/<a href="https://aok.gg/options">aok.gg</a>):</label>
   <input id="jsonIn" name="json">
   <input type="button" value="Load" onclick="loadJsonText()">
+  <body onload="init()">
+     Or 
+    <input id="fileInput" type="file" name="file" />
+    <pre id="fileContent"></pre>
+  </body>
 </form>
 
 
