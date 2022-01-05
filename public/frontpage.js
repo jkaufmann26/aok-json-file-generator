@@ -362,26 +362,38 @@ function collapse(){
 
 function generateJson()
 {
+  
+  var h = $(document).height();
+  var w = $(document).width();
+  var scaleH = h/1080;
+  var scaleW = w/1920;
+
+  var pannelY = $('#dragEnemy1').height();
+  var enemyW = $('#dragEnemy1').width();
+  var allyW = $('#dragAlly1').width();
+  yOffset = h-pannelY; //verticle resolution - 80 in this case 1080-80
+  enemyXOffset = parseInt(.29*enemyW);
+  
   options.NAMEPLATE_HIDE_ALLY=String(allAllyCheck);
   options.NAMEPLATE_HIDE_ENEMY=String(allEnemyCheck);
   options.ALLY_1_PARTY_FRAME_HIDDEN=String(ally1Check);
-  options.ALLY_1_PARTY_FRAME_X_OFFSET=String(allyX1);
-  options.ALLY_1_PARTY_FRAME_Y_OFFSET=String(yOffset-allyY1);
+  options.ALLY_1_PARTY_FRAME_X_OFFSET=String(parseInt(allyX1/scaleW));
+  options.ALLY_1_PARTY_FRAME_Y_OFFSET=String(parseInt((yOffset-allyY1)/scaleH));
   options.ALLY_2_PARTY_FRAME_HIDDEN=String(ally2Check);
-  options.ALLY_2_PARTY_FRAME_X_OFFSET=String(allyX2);
-  options.ALLY_2_PARTY_FRAME_Y_OFFSET=String(yOffset-allyY2);
+  options.ALLY_2_PARTY_FRAME_X_OFFSET=String(parseInt(allyX2/scaleW));
+  options.ALLY_2_PARTY_FRAME_Y_OFFSET=String(parseInt((yOffset-allyY2)/scaleH));
   options.ALLY_3_PARTY_FRAME_HIDDEN=String(ally3Check);
-  options.ALLY_3_PARTY_FRAME_X_OFFSET=String(allyX3);
-  options.ALLY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-allyY3);
+  options.ALLY_3_PARTY_FRAME_X_OFFSET=String(parseInt(allyX3/scaleW));
+  options.ALLY_3_PARTY_FRAME_Y_OFFSET=String(parseInt((yOffset-allyY3)/scaleH));
   options.ENEMY_1_PARTY_FRAME_HIDDEN=String(enemy1Check);
-  options.ENEMY_1_PARTY_FRAME_X_OFFSET=String(enemyX1-enemyXOffset);
-  options.ENEMY_1_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY1);
+  options.ENEMY_1_PARTY_FRAME_X_OFFSET=String(parseInt((enemyX1/scaleW)-enemyXOffset));
+  options.ENEMY_1_PARTY_FRAME_Y_OFFSET=String(parseInt((yOffset-enemyY1)/scaleH));
   options.ENEMY_2_PARTY_FRAME_HIDDEN=String(enemy2Check);
-  options.ENEMY_2_PARTY_FRAME_X_OFFSET=String(enemyX2-enemyXOffset);
-  options.ENEMY_2_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY2);
+  options.ENEMY_2_PARTY_FRAME_X_OFFSET=String(parseInt((enemyX2/scaleW)-enemyXOffset));
+  options.ENEMY_2_PARTY_FRAME_Y_OFFSET=String(parseInt((yOffset-enemyY2)/scaleH));
   options.ENEMY_3_PARTY_FRAME_HIDDEN=String(enemy3Check);
-  options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(enemyX3-enemyXOffset);
-  options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(yOffset-enemyY3);
+  options.ENEMY_3_PARTY_FRAME_X_OFFSET=String(parseInt((enemyX3/scaleW)-enemyXOffset));
+  options.ENEMY_3_PARTY_FRAME_Y_OFFSET=String(parseInt((yOffset-enemyY3)/scaleH));
   options.PARTY_TABS=String(partyTab);
   options.SHOW_PLAY_UI_LONGBAR=String(showBar);
   options.SHOW_PLAY_UI_BACKDROP=String(showBar);
@@ -406,9 +418,14 @@ function download(text) {
 
 function updateVars()
 {
-
-  yOffset = 1000; //verticle resolution - 80 in this case 1080-80
-  enemyXOffset = 63;
+  var h = $(document).height();
+  var w = $(document).width();
+  var pannelY = $('#dragEnemy1').height();
+  var enemyW = $('#dragEnemy1').width();
+  var allyW = $('#dragAlly1').width();
+  // console.log(pannelY);
+  // console.log(enemyW);
+  // console.log(allyW);
   enemyX1=parseInt(options.ENEMY_1_PARTY_FRAME_X_OFFSET);
   enemyX2=parseInt(options.ENEMY_2_PARTY_FRAME_X_OFFSET);
   enemyX3=parseInt(options.ENEMY_3_PARTY_FRAME_X_OFFSET);
@@ -431,21 +448,16 @@ function updateVars()
   allEnemyCheck='true'===options.NAMEPLATE_HIDE_ENEMY;
   partyTab='true'===options.PARTY_TABS;
   showBar='true'===options.SHOW_PLAY_UI_LONGBAR || 'true'===options.SHOW_PLAY_UI_BACKDROP;
-  var h = $(document).height();
-  var w = $(document).width();
-//this check only checks in the down/right direction, other ones can still have problems but like that shouldnt really ever happen with files
-//I dont even know what to do about this anymore, it's gone too far, 
-//84 is size of frame Y, 220 is size of frame X
-//? syntax is an inline if used as the following: `boolean ? true condition : false condition;`
-//This checks bounds and corrects them to the hard-coded values of frame size
-//If we end up needing to scale frames, this will have to change
-  $('#dragEnemy1').css({'top':h<yOffset-enemyY1? h-84:yOffset-enemyY1,'left':w-220<enemyX1+enemyXOffset?w-220:enemyX1+enemyXOffset,'position':'absolute'});
-  $('#dragEnemy2').css({'top':h<yOffset-enemyY2? h-84:yOffset-enemyY2,'left':w-220<enemyX2+enemyXOffset?w-220:enemyX2+enemyXOffset,'position':'absolute'});
-  $('#dragEnemy3').css({'top':h<yOffset-enemyY3? h-84:yOffset-enemyY3,'left':w-220<enemyX3+enemyXOffset?w-220:enemyX3+enemyXOffset,'position':'absolute'});
+  scaleVars();
+  
+  $('#dragEnemy1').css({'top':enemyY1,'left':enemyX1-2,'position':'absolute'});
+  $('#dragEnemy2').css({'top':enemyY2,'left':enemyX2-2,'position':'absolute'});
+  $('#dragEnemy3').css({'top':enemyY3,'left':enemyX3-2,'position':'absolute'});
 
-  $('#dragAlly1').css({'top':h<yOffset-allyY1? h-84:yOffset-allyY1,'left':w-220<allyX1?w-220:allyX1,'position':'absolute'});
-  $('#dragAlly2').css({'top':h<yOffset-allyY2? h-84:yOffset-allyY2,'left':w-220<allyX2?w-220:allyX2,'position':'absolute'});
-  $('#dragAlly3').css({'top':h<yOffset-allyY3? h-84:yOffset-allyY3,'left':w-220<allyX3?w-220:allyX3,'position':'absolute'});
+  $('#dragAlly1').css({'top':allyY1,'left':allyX1,'position':'absolute'});
+  $('#dragAlly2').css({'top':allyY2,'left':allyX2,'position':'absolute'});
+  $('#dragAlly3').css({'top':allyY3,'left':allyX3,'position':'absolute'});
+
   valueChangedAlly1();
   valueChangedAlly2();
   valueChangedAlly3();
@@ -492,4 +504,30 @@ function loadJson(filename)
   // console.log(options);
 
 updateVars();
+}
+
+function scaleVars()
+{
+  var h = $(document).height();
+  var w = $(document).width();
+  var scaleH = h/1080;
+  var scaleW = w/1920;
+
+  var pannelY = $('#dragEnemy1').height();
+  var enemyW = $('#dragEnemy1').width();
+  var allyW = $('#dragAlly1').width();
+  yOffset = h-pannelY;
+  enemyXOffset = parseInt(.29*enemyW);
+  enemyX1=(scaleW*enemyX1)+enemyXOffset;
+  enemyX2=(scaleW*enemyX2)+enemyXOffset;
+  enemyX3=(scaleW*enemyX3)+enemyXOffset;
+  enemyY1=yOffset-(enemyY1*scaleH);
+  enemyY2=yOffset-(enemyY2*scaleH);
+  enemyY3=yOffset-(enemyY3*scaleH);
+  allyX1=scaleW*allyX1;
+  allyX2=scaleW*allyX2;
+  allyX3=scaleW*allyX3;
+  allyY1=yOffset-(allyY1*scaleH);
+  allyY2=yOffset-(allyY2*scaleH);
+  allyY3=yOffset-(allyY3*scaleH);
 }
