@@ -39,26 +39,25 @@ function loadJsonText()
 {
   var inFile = document.getElementById('jsonIn').value;
   options = JSON.parse(inFile);
-  console.log(options);
+  // console.log(options);
   updateVars();
-
 }
 
 function handleFileSelect(evt) {
   const reader = new FileReader()
   reader.onload = handleFileLoad;
-  reader.readAsText(event.target.files[0])
+  reader.readAsText(evt.target.files[0])
 }
 
 function handleFileLoad(event){
   console.log(event);
   // document.getElementById('fileContent').textContent = event.target.result;
   options= JSON.parse(event.target.result);
-  console.log(options);
+  // console.log(options);
   updateVars();
 }
 
-function init(){
+function uploadInit(){
   document.getElementById('fileInput').addEventListener('change', handleFileSelect, false);
 }
 
@@ -69,7 +68,7 @@ $('#dragEnemy1').draggable({
     var yPos = Math.abs(offset.top);
     enemyX1 = xPos;
     enemyY1 = yPos;
-    console.log(enemyX1, enemyY1);
+    // console.log(enemyX1, enemyY1);
   },
   grid: [ 1, 1 ],
   snap: true,
@@ -490,7 +489,7 @@ function loadJson(filename)
     });
     return jsonTemp;
   }(); 
-  console.log(options);
+  // console.log(options);
 
 updateVars();
 }
