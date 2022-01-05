@@ -464,8 +464,8 @@ function updateVars()
   valueChangedEnemy1();
   valueChangedEnemy2();
   valueChangedEnemy3();
-  valueChangedPartyFrame();
-  valueChangedBottomBar();
+  // valueChangedPartyFrame();
+  // valueChangedBottomBar();
 }
 
 function enableSnap()
