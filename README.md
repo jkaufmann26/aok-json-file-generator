@@ -1,7 +1,7 @@
 # aok-json-file-generator
 Aok - Arena of Kings, Json generate for the UI in game. Unfortuantely there is no UI adjustments in-game. This is an attempt to create a User interface to generate the options.json file for AOK UI.
 
-https://AokUI.io
+https://AoGUI.io
 
 
 https://user-images.githubusercontent.com/6378157/148014874-26af0429-c38c-43b9-9d49-f3d3c6e4dfed.mp4
