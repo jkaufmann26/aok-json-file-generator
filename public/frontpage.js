@@ -155,20 +155,24 @@ document.addEventListener('keydown', (e) => {
       enableSnap();
       break;
     case "-":
-      snapX-=5;
-      snapY-=5;
+      snapX-=1;
+      snapY-=1;
+      updateGrid();
       break;
     case "=":
-      snapX+=5;
-      snapY+=5;
+      snapX+=1;
+      snapY+=1;
+      updateGrid();
       break;
     case "_":
-      snapX-=25;
-      snapY-=25;
+      snapX-=5;
+      snapY-=5;
+      updateGrid();
       break;
     case "+":
-      snapX+=25;
-      snapY+=25;
+      snapX+=5;
+      snapY+=5;
+      updateGrid();
       break;
     default:
       break;
@@ -178,6 +182,88 @@ document.addEventListener('keydown', (e) => {
   if(snapY<1)
     snapY=1;
 })
+
+function clearGrid(){
+  const canvas = document.querySelector('#canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawGrid() {
+  var h = $(document).height();
+  var w = $(document).width();
+  const canvas = document.querySelector('#canvas');
+  resizeCanvasToDisplaySize(canvas);
+
+  if (!canvas.getContext) {
+      return;
+  }
+  for(var i = 0; i < w; i+=snapX)
+  {
+    const ctx = canvas.getContext('2d');
+
+    // set line stroke and line width
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 1;
+
+    // draw a red line
+    ctx.beginPath();
+    ctx.moveTo(i, 0);
+    ctx.lineTo(i, h);
+    ctx.stroke();
+  }
+
+  for(var i = 0; i < h; i+=snapY)
+  {
+    const ctx = canvas.getContext('2d');
+
+    // set line stroke and line width
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 1;
+
+    // draw a red line
+    ctx.beginPath();
+    ctx.moveTo(0, i);
+    ctx.lineTo(w, i);
+    ctx.stroke();
+  }
+
+}
+
+function resizeCanvasToDisplaySize(canvas) {
+  // Lookup the size the browser is displaying the canvas in CSS pixels.
+  const displayWidth  = canvas.clientWidth;
+  const displayHeight = canvas.clientHeight;
+ 
+  // Check if the canvas is not the same size.
+  const needResize = canvas.width  !== displayWidth ||
+                     canvas.height !== displayHeight;
+ 
+  if (needResize) {
+    // Make the canvas the same size
+    canvas.width  = displayWidth;
+    canvas.height = displayHeight;
+  }
+ 
+  return needResize;
+}
+
+function updateGrid(){
+  clearGrid();
+  if(grid)
+    drawGrid();
+}
+
+function gridChanged(){
+  if(document.getElementById("gridBox").checked){
+    grid = true;
+    drawGrid();
+  }
+  else{
+    clearGrid();
+    grid = false
+  }
+}
 
 window.addEventListener('keyup', (e) => {
   if(e.key == "Shift")
